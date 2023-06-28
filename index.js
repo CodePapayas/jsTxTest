@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const fs = require('fs')
 
 //Parse HTML forms
 app.use(express.urlencoded({ extended: true}));
 //Parse JSON
 app.use(express.json());
 //Handle static files
-app.use(express.static('/jsTxTest'));
+app.use(express.static('jsTxTest'));
 
 //Route to home page
 app.get('/', (req, res) => {
@@ -20,16 +21,24 @@ app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
-//Grab info from form and send response
+
 app.post('/submit', (req, res) => {
-    const firstName = req.body.firstName;
-    const lastName = req.body.lastName;
-    const birthday = req.body.birthday;
+    const firstName = req.body.fName;
+    const lastName = req.body.lName;
 
-    console.log('First Name:', firstName);
-    console.log('Last Name:', lastName);
-    console.log('Birthday:', birthday);
+    const pop = Array.isArray(req.body.pop) ? req.body.pop : [req.body.pop];
+    let data = '';
+    if (pop) {
+        for (let i = 0; i < pop.length; i++) {
+            let x = Number(pop[i]) / 4;
+            data =+ x + "\n";
+        }
+    }
 
-    res.send(`Hello, ${firstName} ${lastName}, born ${birthday}.`);
+    console.log(data);
+fs.appendFile(__dirname + "txResults.csv", data, "utf-8", (err) => {
+    if (err) console.log(err);
+    else console.log('data saved');
+})
 
 })

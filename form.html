@@ -10,41 +10,42 @@
     
     <form action="/submit" method="POST">
         <h3>Basic info:</h3>
-        <label for="firstName">First Name:</label>
+        <label for="fName">First Name:</label>
         <input type="text" name="firstName" id="fName">
 
-        <label for="lastName">Last Name:</label>
+        <label for="lName">Last Name:</label>
         <input type="text" name="lastName" id="lName"><br>
 
         <h3>Gender:</h3>
-        <input type="checkbox" name="female" id="female"><label for="female">Female</label><br>
-        <input type="checkbox" name="male" id="male"><label for="male">Male</label><br>
-        <input type="checkbox" name="nonB" id="nonB"><label for="nonB">Non-Binary</label><br>
-        <input type="checkbox" name="other" id="other"><label for="other">Other</label><br>
-        <label for="sameGenderQ">
-            Are you willing to work with an individual requesting a therapist who identifies as your gender?
-        </label><input type="checkbox" name="sameGenderQ" id="sameGenderQ"><br>
-        <label for="schedule">When are you available?</label>
-        <input type="date" name="schedule" id="schedule"><br>
+        <input type="checkbox" name="gender" id="female"><label for="female">Female</label><br>
+        <input type="checkbox" name="gender" id="male"><label for="male">Male</label><br>
+        <input type="checkbox" name="gender" id="nonB"><label for="nonB">Non-Binary</label><br>
+        <input type="checkbox" name="gender" id="otherG"><label for="otherG">Other</label><br>
+
+        <h4>Are you willing to work with an individual requesting a therapist who identifies as your gender?<br></h4>
+        <label for="genYes">Yes</label>
+        <input type="checkbox" name="sameGenderQ" id="genYes">
+        <label for="genNo">No</label>
+        <input type="checkbox" name="sameGenderQ" id="genNo">
 
         <h3>Age:</h3>
-        <input type="checkbox" name="age1" id="age1"><label for="age1">20-34</label><br>
-        <input type="checkbox" name="age2" id="age2"><label for="age2">35-44</label><br>
-        <input type="checkbox" name="age3" id="age3"><label for="age3">45-54</label><br>
-        <input type="checkbox" name="age4" id="age4"><label for="age4">55+</label><br>
+        <input type="checkbox" name="age" id="age1"><label for="age1">20-34</label><br>
+        <input type="checkbox" name="age" id="age2"><label for="age2">35-44</label><br>
+        <input type="checkbox" name="age" id="age3"><label for="age3">45-54</label><br>
+        <input type="checkbox" name="age" id="age4"><label for="age4">55+</label><br>
 
         <h3>Race/Ethnicity</h3>
         <p>If you identify as a person of color, are you willing 
             to work with an individual requesting a therapist who identifies as a person of color?</p><br>
-        <input type="radio" name="yes" id="yes"><label for="yes">Yes</label><br>
-        <input type="radio" name="no" id="no"><label for="no">No</label><br>
-        <input type="radio" name="n/a" id="n/a"><label for="n/a">N/A</label><br>
+        <input type="radio" name="race" id="yesR"><label for="yesR">Yes</label><br>
+        <input type="radio" name="race" id="noR"><label for="noR">No</label><br>
+        <input type="radio" name="race" id="n/aR"><label for="n/aR">N/A</label><br>
 
         <p>If you identify as a a member of the LGBTQIA2S+ community, are you willing 
             to work with an individual requesting a therapist who identifies as a person of color?</p><br>
-        <input type="radio" name="yes" id="yes"><label for="yes">Yes</label><br>
-        <input type="radio" name="no" id="no"><label for="no">No</label><br>
-        <input type="radio" name="n/a" id="n/a"><label for="n/a">N/A</label><br>
+        <input type="radio" name="lgbt" id="yesL"><label for="yesL">Yes</label><br>
+        <input type="radio" name="lgbt" id="noL"><label for="noL">No</label><br>
+        <input type="radio" name="lgbt" id="n/aL"><label for="n/aL">N/A</label><br>
 
         <h3>Populations:</h3>
         <p>What populations, presenting issues, and ages are you comfortable working with?
@@ -55,210 +56,210 @@
                 3 - Strong preference to work with <br>
                 </em>
         </p>
-        <label for="Spirit Religion">
+        <label for="mmm">
             Individuals who request a therapist who is supportive of specific spiritual or religious beliefs
         </label><br>
-        <select name="mmm" id="mmm">
+        <select name="pop" id="mmm">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="LGBTQIA2S">
+        <label for="nnn">
             Individuals who identify as LGBTQIA2S+ 
         </label><br>
-        <select name="nnn" id="nnn">
+        <select name="pop" id="nnn">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Gender Affirmation">
+        <label for="ooo">
             Seeking service to support gender affirmation process 
         </label><br>
-        <select name="ooo" id="ooo">
+        <select name="pop" id="ooo">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Male">
+        <label for="ppp">
             Male
         </label><br>
-        <select name="ppp" id="ppp">
+        <select name="pop" id="ppp">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Female">
-            Male
+        <label for="qqq">
+            Female
         </label><br>
-        <select name="qqq" id="qqq">
+        <select name="pop" id="qqq">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Non-Binary">
-            Male
+        <label for="rrr">
+            Non-binary
         </label><br>
-        <select name="rrr" id="rrr">
+        <select name="pop" id="rrr">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="People of Color">
-            Male
+        <label for="sss">
+            People of Color
         </label><br>
-        <select name="sss" id="sss">
+        <select name="pop" id="sss">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Physical Health">
+        <label for="ttt">
             Individuals with physical health issues or chronic pain
         </label><br>
-        <select name="ttt" id="ttt">
+        <select name="pop" id="ttt">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Pregnancy">
+        <label for="uuu">
             Individuals who are pregnant or postpartum
         </label><br>
-        <select name="uuu" id="uuu">
+        <select name="pop" id="uuu">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="SUDs">
+        <label for="vvv">
             Individuals in or seeking recovery from substance use issues
         </label><br>
-        <select name="vvv" id="vvv">
+        <select name="pop" id="vvv">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Family Reuni">
+        <label for="www">
             Families seeking support with reunification
         </label><br>
-        <select name="www" id="www">
+        <select name="pop" id="www">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Court or DHS">
+        <label for="xxx">
             Individuals with court or DHS involvement
         </label><br>
-        <select name="xxx" id="xxx">
+        <select name="pop" id="xxx">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Trauma">
+        <label for="yyy">
             Individuals who have a history of experiencing trauma
         </label><br>
-        <select name="yyy" id="yyy">
+        <select name="pop" id="yyy">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="DV sex traffic">
+        <label for="zzz">
             Individuals who are survivors of domestic violence or sex trafficking
         </label><br>
-        <select name="zzz" id="zzz">
+        <select name="pop" id="zzz">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Grief">
+        <label for="aaaa">
             Individuals experiencing acute or chronic grief
         </label><br>
-        <select name="aaaa" id="aaaa">
+        <select name="pop" id="aaaa">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Age 0-5">
+        <label for="bbbb">
             Age 0-5
         </label><br>
-        <select name="bbbb" id="bbbb">
+        <select name="pop" id="bbbb">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Age 6-12">
+        <label for="cccc">
             Age 6-12
         </label><br>
-        <select name="cccc" id="cccc">
+        <select name="pop" id="cccc">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Age 13-17">
+        <label for="dddd"">
             Age 13-17
         </label><br>
-        <select name="dddd" id="dddd">
+        <select name="pop" id="dddd">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Age 18-30">
+        <label for="eeee">
             Age 18-30
         </label><br>
-        <select name="eeee" id="eeee">
+        <select name="pop" id="eeee">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Age 31-55">
+        <label for="ffff">
             Age 31-55
         </label><br>
-        <select name="ffff" id="ffff">
+        <select name="pop" id="ffff">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
             <option value="option-3">  3  </option>
         </select><br>
 
-        <label for="Age 56+">
+        <label for="gggg">
             Age 56+
         </label><br>
-        <select name="gggg" id="gggg">
+        <select name="pop" id="gggg">
             <option value="option-0">  0  </option>
             <option value="option-1">  1  </option>
             <option value="option-2">  2  </option>
@@ -267,15 +268,15 @@
 
         <h3>Modalities of Treatment</h3>
         <p>Which of the following modalities do you use in your therapy </p>
-        <input type="checkbox" name="emdr" id="emdr"><label for="EMDR">EMDR</label><br>
-        <input type="checkbox" name="mind" id="mind"><label for="Mindfulness">Mindfulness</label><br>
-        <input type="checkbox" name="cbt" id="cbt"><label for="CBT">CBT</label><br>
-        <input type="checkbox" name="dbt" id="dbt"><label for="DBT">DBT</label><br>
-        <input type="checkbox" name="ift" id="ift"><label for="ift">IFT</label><br>
-        <input type="checkbox" name="aft" id="aft"><label for="aft">Adult Family Therapy, including couples</label><br>
-        <input type="checkbox" name="motInt" id="motInt"><label for="motInt">Motivational Interviewing</label><br>
-        <input type="checkbox" name="cft" id="cft"><label for="cft">Contextual Family Therapy</label><br>
-        <label for="other">Other:</label><input type="text" name="other" id="other"><br>
+        <input type="checkbox" name="modal" id="emdr"><label for="emdr">EMDR</label><br>
+        <input type="checkbox" name="modal" id="mind"><label for="mind">Mindfulness</label><br>
+        <input type="checkbox" name="modal" id="cbt"><label for="cbt">CBT</label><br>
+        <input type="checkbox" name="modal" id="dbt"><label for="dbt">DBT</label><br>
+        <input type="checkbox" name="modal" id="ift"><label for="ift">IFT</label><br>
+        <input type="checkbox" name="modal" id="aft"><label for="aft">Adult Family Therapy, including couples</label><br>
+        <input type="checkbox" name="modal" id="motInt"><label for="motInt">Motivational Interviewing</label><br>
+        <input type="checkbox" name="modal" id="cft"><label for="cft">Contextual Family Therapy</label><br>
+        <label for="otherM">Other:</label><input type="text" name="modal" id="otherM"><br>
 
         <button type="submit">Submit</button>
 
