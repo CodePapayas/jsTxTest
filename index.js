@@ -23,8 +23,8 @@ app.listen(port, () => {
 
 
 app.post('/submit', (req, res) => {
-    const firstName = req.body.fName;
-    const lastName = req.body.lName;
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
     const gender = req.body.gender;
     const sameGenderQ = req.body.sameGenderQ;
     const age = req.body.age;
@@ -34,11 +34,11 @@ app.post('/submit', (req, res) => {
 
     const pop = Array.isArray(req.body.pop) ? req.body.pop : [req.body.pop];
 
-    let data = '';
+    let data = [];
     if (pop) {
         for (let i = 0; i < pop.length; i++) {
             let x = Number(pop[i]) / 4;
-            data += x + "\n";
+            data.push(x);
         }
     }
 
@@ -55,7 +55,7 @@ app.post('/submit', (req, res) => {
       };
       
 
-fs.appendFile("answers.txt", txAnswers, (err) => {
+fs.appendFile("./answers.txt", JSON.stringify(txAnswers), (err) => {
     if (err)
     console.log(err);
     else
