@@ -8,7 +8,14 @@ app.use(express.urlencoded({ extended: true}));
 //Parse JSON
 app.use(express.json());
 //Handle static files
-app.use(express.static('jsTxTest'));
+app.use(express.static(__dirname + 'jsTxTest'));
+
+//Set MIME type for CSS
+app.get('/styles.css', (req, res) => {
+    res.set('Content-Type', 'text/css');
+    res.sendFile(__dirname + '/styles.css');
+  });
+
 
 //home page
 app.get('/', (req, res) => {
@@ -56,9 +63,16 @@ app.post('/submit', (req, res) => {
       
 
 fs.appendFile("./answers.txt", JSON.stringify(txAnswers), (err) => {
-    if (err)
+    if (err) {
     console.log(err);
-    else
-    console.log('Data written successfully')
-})
+    }else {
+    console.log('Data written successfully');
+    res.sendFile(__dirname + "/finish.html");
+    };
+});
+
+
+
+
+
 });
