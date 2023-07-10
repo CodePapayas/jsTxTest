@@ -41,11 +41,21 @@ app.post('/submit', (req, res) => {
 
     const pop = Array.isArray(req.body.pop) ? req.body.pop : [req.body.pop];
 
-    let data = [];
+    let popData = [];
     if (pop) {
         for (let i = 0; i < pop.length; i++) {
             let x = Number(pop[i]) / 4;
-            data.push(x);
+            popData.push(x);
+        }
+    }
+
+    const symp = Array.isArray(req.body.symp) ? req.body.symp : [req.body.symp];
+
+    let sympData = [];
+    if (symp) {
+        for (let i = 0; i < symp.length; i++) {
+            let x = Number(symp[i]) / 4;
+            sympData.push(x);
         }
     }
 
@@ -58,7 +68,8 @@ app.post('/submit', (req, res) => {
         race: race,
         lgbt: lgbt,
         modal: modal,
-        data: data
+        popData: popData,
+        sympData: sympData
       };
       
 
