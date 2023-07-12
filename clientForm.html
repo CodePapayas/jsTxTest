@@ -9,6 +9,311 @@
     <title>Home page</title>
 </head>
 <body>
-    
+    <form action="/submit" type="text/css" method="POST"> 
+
+        <div class="container">
+            <h3>Basic info:</h3>
+        <div class="form-floating">
+            <textarea class="form-control mb-3" name="firstName" id="floatingTextArea" placeholder="name"></textarea>
+            <label for="floatingTextArea">First Name:</label>
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control mb-3" name="lastName" id="floatingTextArea" placeholder="name"></textarea>
+            <label for="floatingTextArea">Last Name:</label>
+        </div>
+        </div>
+
+        <div class="container">
+            <h4>Gender:</h4>
+            <input type="checkbox" class="btn-check" name="gender0123" id="female" value="female">
+            <label class="btn btn-outline-primary" for="female">Female</label>
+            <input type="checkbox" class="btn-check" name="gender0123" id="male" value="male">
+            <label class="btn btn-outline-primary" for="male">Male</label>
+            <input type="checkbox" class="btn-check" name="gender0123" id="nonB" value="nonB">
+            <label class="btn btn-outline-primary" for="nonB" >Non-Binary</label>
+            <div class="form-floating">
+                <textarea class="form-control mb-3" name="otherGenderA" id="floatingTextArea" placeholder="Other:"></textarea>
+                <label for="floatingTextArea">Other:</label>
+            </div>
+        </div>
+        <div class="container">
+            <h4>Age:</h4>
+            <input type="radio" class="btn-check" name="age" id="age1" value="age1">
+            <label class="btn btn-secondary" for="age1">20-34</label>
+            <input type="radio" class="btn-check" name="age" id="age2" value="age2">
+            <label class="btn btn-secondary" for="age2">35-44</label>
+            <input type="radio" class="btn-check" name="age" id="age3" value="age3">
+            <label class="btn btn-secondary" for="age3">45-54</label>
+            <input type="radio" class="btn-check" name="age" id="age4" value="age4">
+            <label class="btn btn-secondary" for="age4">55+</label>
+        </div>
+        <div class="container mb-3">
+            <h4>Therapist Demographics</h4>
+            <p>Often individuals do not have preferences in therapist assignment, while other times demographic factors feel very important. 
+                Please let us know any therapist preferences you have and the level of importance. </p>
+            <h4>Level of Importance</h4>
+            <p>Extremely Important - It is critical to me that this preference be accommodated, 
+                and I am willing to wait as long as needed for it to be accommodated.</p>
+            <p>Important- I strongly hope that this preference is accommodated, but I am willing to work 
+                with a therapist who does not meet this preference if the wait will be more than 4 weeks.</p>
+            <p>Not important- While this is my preference, 
+                fast assignment is more important to me than accommodating this preference. </p>
+        </div>
+        <div class="container">
+            <h4>Therapist Gender:</h4>
+            <input type="radio" class="btn-check" name="gender" id="female" value="female">
+            <label class="btn btn-primary" for="female">Female</label>
+            <input type="radio" class="btn-check" name="gender" id="male" value="male">
+            <label class="btn btn-primary" for="male">Male</label>
+            <input type="radio" class="btn-check" name="gender" id="nonB" value="nonB">
+            <label class="btn btn-primary" for="nonB" >Non-Binary</label>
+            <input type="radio" class="btn-check" name="gender" id="otherG" value="otherG">
+            <label class="btn btn-primary" for="otherG">Other</label>
+        </div>
+        <div class="container">
+            <h4>Therapist Age:</h4>
+            <input type="checkbox" class="btn-check" name="age" id="age1" value="age1">
+            <label class="btn btn-outline-primary" for="age1">20-34</label>
+            <input type="radio" class="btn-check" name="age" id="age2" value="age2">
+            <label class="btn btn-secondary" for="age2">35-44</label>
+            <input type="radio" class="btn-check" name="age" id="age3" value="age3">
+            <label class="btn btn-secondary" for="age3">45-54</label>
+            <input type="radio" class="btn-check" name="age" id="age4" value="age4">
+            <label class="btn btn-secondary" for="age4">55+</label>
+        </div>
+        <div class="container">
+            <h4>Race/Ethnicity</h4>
+            <p>Is it important to you to work with a clinician who is a person of color?</p>
+            <input type="radio" class="btn-check" name="race" id="yesR" value="yesR">
+            <label class="btn btn-primary" for="yesR">Yes</label>
+            <input type="radio" class="btn-check" name="race" id="noR" value="noR">
+            <label class="btn btn-primary" for="noR">No</label>
+            <input type="radio" class="btn-check" name="race" id="n/aR" value="n/aR">
+            <label class="btn btn-primary" for="n/aR">N/A</label>
+            </div>
+            <div class="container">
+            <h4>LGBTQIA2S+ </h4>
+            <p>Is it important to you to work with a clinician who identifies as a member of the LGBTQIA2S+ community? </p>
+            <input type="radio" class="btn-check" name="lgbt" id="yesL" value="yesL">
+            <label class="btn btn-primary" for="yesL">Yes</label>
+            <input type="radio" class="btn-check" name="lgbt" id="noL" value="noL">
+            <label class="btn btn-primary" for="noL">No</label>
+            <input type="radio" class="btn-check" name="lgbt" id="n/aL" value="n/aL">
+            <label class="btn btn-primary" for="n/aL">N/A</label>
+        </div>
+        <div class="container">
+            <h4>Therapist/Client Compatibility</h4>
+            <p>What would you like your assigned therapist to be comfortable working with? 
+                Please mark any / all that apply</p>
+                    <label for="lgbtqia2s">
+                Individuals who identify as LGBTQIA2S+ 
+            </label>
+            <select class="form-select" name="pop" id="lgbtqia2s">
+                <option value="0">N/A</option>
+                <option value="1">Not Important</option>
+                <option value="2">Important</option>
+                <option value="3">Extremely Important</option>
+            </select>
+
+            <label for="spiritual">
+                Individuals who request a therapist who is supportive of specific spiritual or religious beliefs
+            </label>
+            <select class="form-select" name="pop" id="spiritual">
+                <option value="0">N/A  </option>
+                <option value="1">Not Important  </option>
+                <option value="2">Important</option>
+                <option value="3">Extremely Important</option>
+            </select>
+
+            <label for="genderAffirm">
+                Seeking service to support gender affirmation process 
+            </label>
+            <select class="form-select" name="pop" id="genderAffirm">
+                <option value="0">N/A  </option>
+                <option value="1">Not Important  </option>
+                <option value="2">Important</option>
+                <option value="3">Extremely Important</option>
+            </select>
+
+            <label for="chronicPain">
+                Individuals with physical health issues or chronic pain
+            </label>
+            <select class="form-select" name="pop" id="chronicPain">
+                <option value="0">N/A  </option>
+                <option value="1">Not Important  </option>
+                <option value="2">Important</option>
+                <option value="3">Extremely Important</option>
+            </select>
+
+            <label for="pregnantPostP">
+                Individuals who are pregnant or postpartum
+            </label>
+            <select class="form-select" name="pop" id="pregnantPostP">
+                <option value="0">N/A  </option>
+                <option value="1">Not Important  </option>
+                <option value="2">Important</option>
+                <option value="3">Extremely Important</option>
+            </select>
+
+            <label for="recovery">
+                Individuals in or seeking recovery from substance use issues
+            </label>
+            <select class="form-select" name="pop" id="recovery">
+                <option value="0">N/A  </option>
+                <option value="1">Not Important  </option>
+                <option value="2">Important</option>
+                <option value="3">Extremely Important</option>
+            </select>
+
+            <label for="familyReuni">
+                Families seeking support with reunification
+            </label>
+            <select class="form-select" name="pop" id="familyReuni">
+                <option value="0">N/A  </option>
+                <option value="1">Not Important  </option>
+                <option value="2">Important</option>
+                <option value="3">Extremely Important</option>
+            </select>
+
+            <label for="courtDhs">
+                Individuals with court or DHS involvement
+            </label>
+            <select class="form-select" name="pop" id="courtDhs">
+                <option value="0">N/A  </option>
+                <option value="1">Not Important  </option>
+                <option value="2">Important</option>
+                <option value="3">Extremely Important</option>
+            </select>
+
+            <label for="dvSexTraffic">
+                Individuals who are survivors of domestic violence or sex trafficking
+            </label>
+            <select class="form-select" name="pop" id="dvSexTraffic">
+                <option value="0">N/A  </option>
+                <option value="1">Not Important  </option>
+                <option value="2">Important</option>
+                <option value="3">Extremely Important</option>
+            </select>
+
+        </div>
+        </div>
+        <div class="container">
+            <h4>Presenting Issues</h4>
+            <p>What symptoms are you experiencing? Check any / all that apply</p>
+            <div class="d-grid gap-2">
+
+//Depression symptoms
+                <input type="checkbox" class="btn-check" name="depression" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="depression" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="depression" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="depression" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="depression" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="depression" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="depression" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="depression" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="depression" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="depression" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="depression" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="depression" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+//Anxiety symptoms
+                <input type="checkbox" class="btn-check" name="anxiety" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="anxiety" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="anxiety" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+//Impact of Trauma symptoms
+                <input type="checkbox" class="btn-check" name="trauma" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="trauma" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="trauma" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="trauma" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="trauma" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="trauma" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="trauma" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="trauma" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="trauma" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="trauma" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+//Psychosis symptoms
+                <input type="checkbox" class="btn-check" name="psychosis" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="psychosis" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="psychosis" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>                
+                <input type="checkbox" class="btn-check" name="psychosis" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="psychosis" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="psychosis" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+//Obsessive symptoms
+                <input type="checkbox" class="btn-check" name="obsessv" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="obsessv" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="obsessv" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>                
+                <input type="checkbox" class="btn-check" name="obsessv" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+//Bipolar symptoms
+                <input type="checkbox" class="btn-check" name="bp" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="bp" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="bp" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="bp" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="bp" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="bp" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="bp" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="bp" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+//Disordered eating
+                <input type="checkbox" class="btn-check" name="eating" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="eating" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="eating" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="eating" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="eating" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="eating" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="eating" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+                <input type="checkbox" class="btn-check" name="eating" id="btn-check" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btn-check">20-34</label>
+
+              </div>
+        </div>
+    </form>
 </body>
 </html>

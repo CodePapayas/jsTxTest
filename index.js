@@ -34,6 +34,8 @@ app.post('/submit', (req, res) => {
     const lastName = req.body.lastName;
     const gender = req.body.gender;
     const sameGenderQ = req.body.sameGenderQ;
+    const sameGenderA = req.body.gender0123;
+    const otherGenderA = req.body.otherGenderA;
     const age = req.body.age;
     const race = req.body.race;
     const lgbt = req.body.lgbt;
@@ -44,8 +46,9 @@ app.post('/submit', (req, res) => {
     let popData = [];
     if (pop) {
         for (let i = 0; i < pop.length; i++) {
-            let x = Number(pop[i]) / 4;
-            popData.push(x);
+            let x = Number(pop[i]) / 3;
+            let xRounded = x.toFixed(3);
+            popData.push(Number(xRounded));
         }
     }
 
@@ -54,8 +57,9 @@ app.post('/submit', (req, res) => {
     let sympData = [];
     if (symp) {
         for (let i = 0; i < symp.length; i++) {
-            let x = Number(symp[i]) / 4;
-            sympData.push(x);
+            let x = Number(symp[i]) / 3;
+            let xRounded = x.toFixed(3);
+            popData.push(Number(xRounded));
         }
     }
 
@@ -64,6 +68,8 @@ app.post('/submit', (req, res) => {
         lastName: lastName,
         gender: gender,
         sameGenderQ: sameGenderQ,
+        sameGenderA: sameGenderA,
+        otherGenderA: otherGenderA,
         age: age,
         race: race,
         lgbt: lgbt,
