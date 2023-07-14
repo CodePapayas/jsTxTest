@@ -1,7 +1,34 @@
 const express = require('express');
 const app = express();
-const port = 3000;
-const fs = require('fs')
+const port = 3010;
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://CodePapayas:Pistachios2050@cluster0.crlnuvw.mongodb.net/?retryWrites=true&w=majority";
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
+
 
 //Parse HTML forms
 app.use(express.urlencoded({ extended: true}));
@@ -29,7 +56,7 @@ app.listen(port, () => {
 });
 
 
-app.post('/submit', (req, res) => {
+app.post('/submit', async (req, res) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const gender = req.body.gender;
@@ -59,7 +86,7 @@ app.post('/submit', (req, res) => {
         for (let i = 0; i < symp.length; i++) {
             let x = Number(symp[i]) / 3;
             let xRounded = x.toFixed(3);
-            popData.push(Number(xRounded));
+            sympData.push(Number(xRounded));
         }
     }
 
@@ -78,18 +105,26 @@ app.post('/submit', (req, res) => {
         sympData: sympData
       };
       
+    try {
+        await client.connect();
 
-fs.appendFile("./answers.txt", JSON.stringify(txAnswers), (err) => {
-    if (err) {
-    console.log(err);
-    }else {
-    console.log('Data written successfully');
-    res.sendFile(__dirname + "/finish.html");
-    };
-});
+        const db = client.db('AnswerObjects');
+        const collection = db.collection('ProviderAnswers');
+
+        await collection.insertOne(txAnswers);
+
+        console.log('Data written successfully');
+        res.sendFile(__dirname + '/finish.html');
+      } catch (error) {
+        console.error('Error writing data to MongoDB:', error);
+      } finally {
+        await client.close(); // Close the MongoDB connection
+      }
+    }
 
 
 
 
 
-});
+
+);
