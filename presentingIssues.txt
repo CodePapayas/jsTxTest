@@ -1,0 +1,75 @@
+{"presentingIssues": [
+        {"name": "Depression",
+        "symptoms": [
+            {"name": "Low mood"},
+            {"name": "Low motivation"},
+            {"name": "Difficulty doing daily tasks"},
+            {"name": "Sleep issues"},
+            {"name": "Less interest in activities I used to enjoy"},
+            {"name": "Fatigue / loss of energy"},
+            {"name": "Difficulty concentrating"},
+            {"name": "Suicidal ideation / thoughts of death"},
+            {"name": "Poor appetite / overeating "},
+            {"name": "Low self-worth"},
+            {"name": "Negative self-talk"},
+            {"name": "Feelings of hopelessness"}
+        ]},
+        {"name": "Anxiety",
+        "symptoms": [
+            {"name": "Restlessness"},
+            {"name": "Excessive worry"},
+            {"name": "Panic"}
+        ]},
+        {"name": "Impact of trauma",
+        "symptoms": [
+            {"name": "Nightmares"},
+            {"name": "Hypervigilance"},
+            {"name": "Triggered when reminded of trauma"},
+            {"name": "Intense fears"},
+            {"name": "Flashbacks"},
+            {"name": "Irritability"},
+            {"name": "Easily startled"},
+            {"name": "Reckless or self-destructive behaviors"},
+            {"name": "Avoiding things that trigger strong emotions"},
+            {"name": "Difficulties with other people"}
+        ]},
+        {"name": "Psychosis",
+        "symptoms": [
+            {"name": "Delusional thoughts"},
+            {"name": "Hallucinations"},
+            {"name": "Disorganized speech"},
+            {"name": "Disorganized or chaotic behaviors"},
+            {"name": "Catatonia"},
+            {"name": "Hearing voices in my head"}
+        ]},
+        {"name": "Obsessive symptoms",
+        "symptoms": [
+            {"name": "Recurrent and persistent thoughts, urges, or images"},
+            {"name": "Feeling driven to preform repetitive behaviors or mental acts"},
+            {"name": "Skin picking"},
+            {"name": "Preoccupation with perceived flaws or defects"}
+        ]},
+        {"name": "Bipolar Symptoms",
+        "symptoms": [
+            {"name": "Feeling very happy, elated or overjoyed"},
+            {"name": "Talking very quickly"},
+            {"name": "Feeling full of energy"},
+            {"name": "Feeling self-important"},
+            {"name": "Feeling full of great new ideas and having important plans"},
+            {"name": "Being easily irritated or agitated"},
+            {"name": "Being delusional, having hallucinations and disturbed or illogical thinking"},
+            {"name": "Episodes of depression"}
+        ]},
+        {"name": "Disordered Eating",
+        "symptoms": [
+            {"name": "Overeating which feel out of your control"},
+            {"name": "Restricting eating"},
+            {"name": "Binging food"},
+            {"name": "Forcing self to vomit"},
+            {"name": "Body dysmorphia"},
+            {"name": "Thinking about weight more than feel healthy"},
+            {"name": "How I feel about my body impacts my self worth"},
+            {"name": "Thinking  about my body more than feels healthy"}
+        ]}
+    ]
+}
