@@ -9,7 +9,7 @@
     <title>Client Version</title>
 </head>
 <body>
-    <form action="/submit" type="text/css" method="POST"> 
+    <form action="/submit" id="clientForm" type="text/css" method="POST"> 
 
         <div class="container">
             <h3>Basic info:</h3>
@@ -25,11 +25,11 @@
 
         <div class="container">
             <h4>Gender:</h4>
-            <input type="radio" class="btn-check" name="gender" id="female" value="female">
+            <input type="radio" class="btn-check" name="gender" id="female" value="Female">
             <label class="btn btn-outline-primary" for="female">Female</label>
-            <input type="radio" class="btn-check" name="gender" id="male" value="male">
+            <input type="radio" class="btn-check" name="gender" id="male" value="Male">
             <label class="btn btn-outline-primary" for="male">Male</label>
-            <input type="radio" class="btn-check" name="gender" id="nonB" value="nonB">
+            <input type="radio" class="btn-check" name="gender" id="nonB" value="Non-Binary">
             <label class="btn btn-outline-primary" for="nonB" >Non-Binary</label>
             <div class="form-floating">
                 <textarea class="form-control mb-3" name="otherGenderA" id="floatingTextArea" placeholder="Other:"></textarea>
@@ -38,13 +38,13 @@
         </div>
         <div class="container">
             <h4>Age:</h4>
-            <input type="radio" class="btn-check" name="age" id="age1" value="age1">
+            <input type="radio" class="btn-check" name="age" id="age1" value="20-34">
             <label class="btn btn-secondary" for="age1">20-34</label>
-            <input type="radio" class="btn-check" name="age" id="age2" value="age2">
+            <input type="radio" class="btn-check" name="age" id="age2" value="35-44">
             <label class="btn btn-secondary" for="age2">35-44</label>
-            <input type="radio" class="btn-check" name="age" id="age3" value="age3">
+            <input type="radio" class="btn-check" name="age" id="age3" value="45-54">
             <label class="btn btn-secondary" for="age3">45-54</label>
-            <input type="radio" class="btn-check" name="age" id="age4" value="age4">
+            <input type="radio" class="btn-check" name="age" id="age4" value="55+">
             <label class="btn btn-secondary" for="age4">55+</label>
         </div>
         <div class="container mb-3">
@@ -61,141 +61,53 @@
         </div>
         <div class="container">
             <h4>Therapist Gender:</h4>
-            <input type="radio" class="btn-check" name="sameGenderQ" id="female" value="female">
+            <input type="radio" class="btn-check" name="sameGenderQ" id="female" value="Female">
             <label class="btn btn-primary" for="female">Female</label>
-            <input type="radio" class="btn-check" name="sameGenderQ" id="male" value="male">
+            <input type="radio" class="btn-check" name="sameGenderQ" id="male" value="Male">
             <label class="btn btn-primary" for="male">Male</label>
-            <input type="radio" class="btn-check" name="sameGenderQ" id="nonB" value="nonB">
+            <input type="radio" class="btn-check" name="sameGenderQ" id="nonB" value="Non-Binary">
             <label class="btn btn-primary" for="nonB" >Non-Binary</label>
             <input type="radio" class="btn-check" name="otherGenderA" id="otherG" value="otherG">
             <label class="btn btn-primary" for="otherG">Other</label>
         </div>
         <div class="container">
             <h4>Therapist Age:</h4>
-            <input type="checkbox" class="btn-check" name="age" id="age5" value="age1">
+            <input type="checkbox" class="btn-check" name="txAge" id="age5" value="20-34">
             <label class="btn btn-outline-primary" for="age5">20-34</label>
-            <input type="radio" class="btn-check" name="age" id="age6" value="age2">
-            <label class="btn btn-secondary" for="age6">35-44</label>
-            <input type="radio" class="btn-check" name="age" id="age6" value="age3">
-            <label class="btn btn-secondary" for="age6">45-54</label>
-            <input type="radio" class="btn-check" name="age" id="age6" value="age4">
-            <label class="btn btn-secondary" for="age6">55+</label>
+            <input type="checkbox" class="btn-check" name="txAge" id="age6" value="35-44">
+            <label class="btn btn-outline-primary" for="age6">35-44</label>
+            <input type="checkbox" class="btn-check" name="txAge" id="age7" value="45-54">
+            <label class="btn btn-outline-primary" for="age7">45-54</label>
+            <input type="checkbox" class="btn-check" name="txAge" id="age8" value="55+">
+            <label class="btn btn-outline-primary" for="age8">55+</label>
         </div>
         <div class="container">
             <h4>Race/Ethnicity</h4>
             <p>Is it important to you to work with a clinician who is a person of color?</p>
-            <input type="radio" class="btn-check" name="race" id="yesR" value="yesR">
+            <input type="radio" class="btn-check" name="race" id="yesR" value="Important to work with bipoc tx">
             <label class="btn btn-primary" for="yesR">Yes</label>
-            <input type="radio" class="btn-check" name="race" id="noR" value="noR">
+            <input type="radio" class="btn-check" name="race" id="noR" value="Not important to work with bipoc tx">
             <label class="btn btn-primary" for="noR">No</label>
-            <input type="radio" class="btn-check" name="race" id="n/aR" value="n/aR">
+            <input type="radio" class="btn-check" name="race" id="n/aR" value="n/a">
             <label class="btn btn-primary" for="n/aR">N/A</label>
             </div>
             <div class="container">
             <h4>LGBTQIA2S+ </h4>
             <p>Is it important to you to work with a clinician who identifies as a member of the LGBTQIA2S+ community? </p>
-            <input type="radio" class="btn-check" name="lgbt" id="yesL" value="yesL">
-            <label class="btn btn-primary" for="yesL">Yes</label>
-            <input type="radio" class="btn-check" name="lgbt" id="noL" value="noL">
-            <label class="btn btn-primary" for="noL">No</label>
-            <input type="radio" class="btn-check" name="lgbt" id="n/aL" value="n/aL">
-            <label class="btn btn-primary" for="n/aL">N/A</label>
+            <input type="radio" class="btn-check" name="lgbt" id="yesL" value="Important to work with LGBTQIA2S+ tx">
+            <label class="btn btn-outline-primary" for="yesL">Yes</label>
+            <input type="radio" class="btn-check" name="lgbt" id="noL" value="Not important to work with LGBTQIA2S+ tx">
+            <label class="btn btn-outline-primary" for="noL">No</label>
+            <input type="radio" class="btn-check" name="lgbt" id="n/aL" value="n/a">
+            <label class="btn btn-outline-primary" for="n/aL">N/A</label>
         </div>
         <div class="container">
             <h4>Therapist/Client Compatibility</h4>
             <p>What would you like your assigned therapist to be comfortable working with? 
                 Please mark any / all that apply</p>
-                    <label for="lgbtqia2s">
-                Individuals who identify as LGBTQIA2S+ 
-            </label>
-            <select class="form-select" name="pop" id="lgbtqia2s">
-                <option value="0">N/A</option>
-                <option value="1">Not Important</option>
-                <option value="2">Important</option>
-                <option value="3">Extremely Important</option>
-            </select>
-
-            <label for="spiritual">
-                Individuals who request a therapist who is supportive of specific spiritual or religious beliefs
-            </label>
-            <select class="form-select" name="pop" id="spiritual">
-                <option value="0">N/A  </option>
-                <option value="1">Not Important  </option>
-                <option value="2">Important</option>
-                <option value="3">Extremely Important</option>
-            </select>
-
-            <label for="genderAffirm">
-                Seeking service to support gender affirmation process 
-            </label>
-            <select class="form-select" name="pop" id="genderAffirm">
-                <option value="0">N/A  </option>
-                <option value="1">Not Important  </option>
-                <option value="2">Important</option>
-                <option value="3">Extremely Important</option>
-            </select>
-
-            <label for="chronicPain">
-                Individuals with physical health issues or chronic pain
-            </label>
-            <select class="form-select" name="pop" id="chronicPain">
-                <option value="0">N/A  </option>
-                <option value="1">Not Important  </option>
-                <option value="2">Important</option>
-                <option value="3">Extremely Important</option>
-            </select>
-
-            <label for="pregnantPostP">
-                Individuals who are pregnant or postpartum
-            </label>
-            <select class="form-select" name="pop" id="pregnantPostP">
-                <option value="0">N/A  </option>
-                <option value="1">Not Important  </option>
-                <option value="2">Important</option>
-                <option value="3">Extremely Important</option>
-            </select>
-
-            <label for="recovery">
-                Individuals in or seeking recovery from substance use issues
-            </label>
-            <select class="form-select" name="pop" id="recovery">
-                <option value="0">N/A  </option>
-                <option value="1">Not Important  </option>
-                <option value="2">Important</option>
-                <option value="3">Extremely Important</option>
-            </select>
-
-            <label for="familyReuni">
-                Families seeking support with reunification
-            </label>
-            <select class="form-select" name="pop" id="familyReuni">
-                <option value="0">N/A  </option>
-                <option value="1">Not Important  </option>
-                <option value="2">Important</option>
-                <option value="3">Extremely Important</option>
-            </select>
-
-            <label for="courtDhs">
-                Individuals with court or DHS involvement
-            </label>
-            <select class="form-select" name="pop" id="courtDhs">
-                <option value="0">N/A  </option>
-                <option value="1">Not Important  </option>
-                <option value="2">Important</option>
-                <option value="3">Extremely Important</option>
-            </select>
-
-            <label for="dvSexTraffic">
-                Individuals who are survivors of domestic violence or sex trafficking
-            </label>
-            <select class="form-select" name="pop" id="dvSexTraffic">
-                <option value="0">N/A  </option>
-                <option value="1">Not Important  </option>
-                <option value="2">Important</option>
-                <option value="3">Extremely Important</option>
-            </select>
-
-        </div>
+                <div class="d-grid gap-2">
+                    <div class="populations"></div>
+                </div>
         </div>
         <div class="container">
             <h4>Presenting Issues</h4>

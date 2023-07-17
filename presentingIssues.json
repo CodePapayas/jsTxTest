@@ -1,8 +1,6 @@
-{
-  "presentingIssues": [
-    {
-      "name": "Depression",
-      "symptoms": [
+{"presentingIssues": [
+    {"name": "Depression", 
+    "symptoms": [
         {"name": "Low mood"},
         {"name": "Low motivation"},
         {"name": "Difficulty doing daily tasks"},
@@ -15,19 +13,15 @@
         {"name": "Low self-worth"},
         {"name": "Negative self-talk"},
         {"name": "Feelings of hopelessness"}
-      ]
-    },
-    {
-      "name": "Anxiety",
-      "symptoms": [
+    ]},
+    {"name": "Anxiety",
+    "symptoms": [
         {"name": "Restlessness"},
         {"name": "Excessive worry"},
         {"name": "Panic"}
-      ]
-    },
-    {
-      "name": "Impact of trauma",
-      "symptoms": [
+    ]},
+    {"name": "Impact of trauma",
+    "symptoms": [
         {"name": "Nightmares"},
         {"name": "Hypervigilance"},
         {"name": "Triggered when reminded of trauma"},
@@ -38,31 +32,25 @@
         {"name": "Reckless or self-destructive behaviors"},
         {"name": "Avoiding things that trigger strong emotions"},
         {"name": "Difficulties with other people"}
-      ]
-    },
-    {
-      "name": "Psychosis",
-      "symptoms": [
+    ]},
+    {"name": "Psychosis",
+    "symptoms": [
         {"name": "Delusional thoughts"},
         {"name": "Hallucinations"},
         {"name": "Disorganized speech"},
         {"name": "Disorganized or chaotic behaviors"},
         {"name": "Catatonia"},
         {"name": "Hearing voices in my head"}
-      ]
-    },
-    {
-      "name": "Obsessive symptoms",
-      "symptoms": [
+    ]},
+    {"name": "Obsessive symptoms",
+    "symptoms": [
         {"name": "Recurrent and persistent thoughts, urges, or images"},
         {"name": "Feeling driven to preform repetitive behaviors or mental acts"},
         {"name": "Skin picking"},
         {"name": "Preoccupation with perceived flaws or defects"}
-      ]
-    },
-    {
-      "name": "Bipolar Symptoms",
-      "symptoms": [
+    ]},
+    {"name": "Bipolar Symptoms",
+    "symptoms": [
         {"name": "Feeling very happy, elated or overjoyed"},
         {"name": "Talking very quickly"},
         {"name": "Feeling full of energy"},
@@ -71,11 +59,9 @@
         {"name": "Being easily irritated or agitated"},
         {"name": "Being delusional, having hallucinations and disturbed or illogical thinking"},
         {"name": "Episodes of depression"}
-      ]
-    },
-    {
-      "name": "Disordered Eating",
-      "symptoms": [
+    ]},
+    {"name": "Disordered Eating",
+    "symptoms": [
         {"name": "Overeating which feel out of your control"},
         {"name": "Restricting eating"},
         {"name": "Binging food"},
@@ -84,29 +70,6 @@
         {"name": "Thinking about weight more than feel healthy"},
         {"name": "How I feel about my body impacts my self worth"},
         {"name": "Thinking  about my body more than feels healthy"}
-      ]
-    }
-  {"populations": [
-    {"name": "Male"},
-    {"name": "Female"},
-    {"name": "Non-binary"},
-    {"name": "People of color"},
-    {"name": "Age 0-5"},
-    {"name": "Age 5-12"},
-    {"name": "Age 13-17"},
-    {"name": "Age 18-30"},
-    {"name": "Age 31-55"},
-    {"name": "Age 56+"},
-    {"name": "Individuals who identify as LGBTQIA2S+"},
-    {"name": "Individuals who request a therapist who is supportive of specific spiritual or religious beliefs"},
-    {"name": "Seeking service to support gender affirmation"},
-    {"name": "Individuals with physical health issues or chronic pain"},
-    {"name": "Individuals who are pregnant or postpartum"},
-    {"name": "Individuals in or seeking recovery from substance use issues"},
-    {"name": "Families seeking support with reunification"},
-    {"name": "Individuals with court or DHS involvement"},
-    {"name": "Individuals who have a history of experiencing trauma"},
-    {"name": "Individuals who are survivors of domestic violence or sex trafficking"},
-    {"name": "Individuals experiencing acute or chronic grief"}
-  ]
+    ]}
+]
 }
