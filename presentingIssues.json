@@ -20,7 +20,7 @@
         {"name": "Excessive worry"},
         {"name": "Panic"}
     ]},
-    {"name": "Impact of trauma",
+    {"name": "Impactoftrauma",
     "symptoms": [
         {"name": "Nightmares"},
         {"name": "Hypervigilance"},
@@ -42,14 +42,14 @@
         {"name": "Catatonia"},
         {"name": "Hearing voices in my head"}
     ]},
-    {"name": "Obsessive symptoms",
+    {"name": "Obsessivesymptoms",
     "symptoms": [
         {"name": "Recurrent and persistent thoughts, urges, or images"},
         {"name": "Feeling driven to preform repetitive behaviors or mental acts"},
         {"name": "Skin picking"},
         {"name": "Preoccupation with perceived flaws or defects"}
     ]},
-    {"name": "Bipolar Symptoms",
+    {"name": "BipolarSymptoms",
     "symptoms": [
         {"name": "Feeling very happy, elated or overjoyed"},
         {"name": "Talking very quickly"},
@@ -60,7 +60,7 @@
         {"name": "Being delusional, having hallucinations and disturbed or illogical thinking"},
         {"name": "Episodes of depression"}
     ]},
-    {"name": "Disordered Eating",
+    {"name": "DisorderedEating",
     "symptoms": [
         {"name": "Overeating which feel out of your control"},
         {"name": "Restricting eating"},

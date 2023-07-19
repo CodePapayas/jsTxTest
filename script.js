@@ -1,3 +1,6 @@
+let presentingIssues;
+
+
 async function createButtonsPop() {
     try {
         const response = await fetch('/api/presenting-issues');
@@ -94,17 +97,18 @@ const createButtons2 = (data) => {
             container2.appendChild(populationsLabel);
             container2.appendChild(populationsSelect);
 
+            
+
         });
     } catch (error) {
         console.error('Error creating buttons:', error);
         console.log('Data:', data);
         console.log('createButtons2 called with data:', data);
-    }
-}
-
+    };
+};
 
 window.addEventListener('load', myInit, true); function myInit(){
     createButtonsPop();
     createButtonsPresentingIssues();
 }
-
+      

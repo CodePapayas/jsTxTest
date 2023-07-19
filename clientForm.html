@@ -32,7 +32,7 @@
             <input type="radio" class="btn-check" name="gender" id="nonB" value="Non-Binary">
             <label class="btn btn-outline-primary" for="nonB" >Non-Binary</label>
             <div class="form-floating">
-                <textarea class="form-control mb-3" name="otherGenderA" id="floatingTextArea" placeholder="Other:"></textarea>
+                <textarea class="form-control mb-3" name="otherGenderA1" id="floatingTextArea" placeholder="Other:"></textarea>
                 <label for="floatingTextArea">Other:</label>
             </div>
         </div>
@@ -61,14 +61,14 @@
         </div>
         <div class="container">
             <h4>Therapist Gender:</h4>
-            <input type="radio" class="btn-check" name="sameGenderQ" id="female" value="Female">
-            <label class="btn btn-primary" for="female">Female</label>
-            <input type="radio" class="btn-check" name="sameGenderQ" id="male" value="Male">
-            <label class="btn btn-primary" for="male">Male</label>
-            <input type="radio" class="btn-check" name="sameGenderQ" id="nonB" value="Non-Binary">
-            <label class="btn btn-primary" for="nonB" >Non-Binary</label>
-            <input type="radio" class="btn-check" name="otherGenderA" id="otherG" value="otherG">
-            <label class="btn btn-primary" for="otherG">Other</label>
+            <input type="radio" class="btn-check" name="txGender" id="femaleTx" value="Female">
+            <label class="btn btn-primary" for="femaleTx">Female</label>
+            <input type="radio" class="btn-check" name="txGender" id="maleTx" value="Male">
+            <label class="btn btn-primary" for="maleTx">Male</label>
+            <input type="radio" class="btn-check" name="txGender" id="nonBTx" value="Non-Binary">
+            <label class="btn btn-primary" for="nonBTx" >Non-Binary</label>
+            <input type="radio" class="btn-check" name="otherGenderA2" id="otherGTx" value="otherG">
+            <label class="btn btn-primary" for="otherGTx">Other</label>
         </div>
         <div class="container">
             <h4>Therapist Age:</h4>
@@ -119,8 +119,8 @@
         </div>
     </form>
 
+    <div name = "symptomAnswers" id="symptomAnswers" class="hidden"></div>
 
-    
     <script src="script.js"></script>
 </body>
 </html>

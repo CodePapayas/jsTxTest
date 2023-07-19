@@ -33,17 +33,6 @@ router.post('/form', async (req, res) => {
     }
   }
 
-  const symp = Array.isArray(req.body.symp) ? req.body.symp : [req.body.symp];
-  
-  let sympData = [];
-  if (symp) {
-    for (let i = 0; i < symp.length; i++) {
-      let x = Number(symp[i]) / 3;
-      let xRounded = x.toFixed(3);
-      sympData.push(Number(xRounded));
-    }
-  }
-
 
   const txAnswers = {
     firstName: firstName,
@@ -80,12 +69,18 @@ router.post('/submit', async (req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
   const gender = req.body.gender;
-  const sameGenderQ = req.body.sameGenderQ;
-  const otherGenderA = req.body.otherGenderA;
+  const txGender = req.body.txGender;
+  const txAge = req.body.txAge;
   const age = req.body.age;
   const race = req.body.race;
   const lgbt = req.body.lgbt;
-  const modal = req.body.modal;
+  const depression = req.body.depression;
+  const anxiety = req.body.anxiety;
+  const impactoftrauma = req.body.impactoftrauma;
+  const psychosis = req.body.psychosis;
+  const obsessivesymptoms = req.body.obsessivesymptoms;
+  const bipolarsymptoms = req.body.bipolarsymptoms;
+  const disorderedeating = req.body.disorderedeating;
 
   const pop = Array.isArray(req.body.pop) ? req.body.pop : [req.body.pop];
 
@@ -98,29 +93,23 @@ router.post('/submit', async (req, res) => {
     }
   }
 
-  const data = req.body.sypmtoms;
-  const dataValues = Object.values(data);
-  const sympData = [];
-  for (element of dataValues) {
-      const name = data.name;
-      const totalCheckboxes = data.total;
-      const checkedCheckboxes = data.checked;
-      const symptomDecimal = checkedCheckboxes / totalCheckboxes;
-      sympData.push({ name, symptomDecimal });
-    };
-
   const ptAnswers = {
     firstName: firstName,
     lastName: lastName,
     gender: gender,
-    sameGenderQ: sameGenderQ,
-    otherGenderA: otherGenderA,
+    txGender: txGender,
+    txAge: txAge,
     age: age,
     race: race,
     lgbt: lgbt,
-    modal: modal,
     popData: popData,
-    sympData: sympData
+    depression: depression,
+    anxiety: anxiety,
+    impactoftrauma: impactoftrauma,
+    psychosis: psychosis,
+    obsessivesymptoms: obsessivesymptoms,
+    bipolarsymptoms: bipolarsymptoms,
+    disorderedeating: disorderedeating
   };
 
   try {
