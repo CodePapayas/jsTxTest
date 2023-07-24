@@ -10,7 +10,7 @@
 </head>
 <body>
     <a href="/" class="btn-secondary">HOME</a>
-    <form action="/submit" id="clientForm" type="text/css" method="POST"> 
+    <form action="/patient-submit" id="clientForm" type="text/css" method="POST"> 
 
         <div class="container">
             <h3>Basic info:</h3>
@@ -33,7 +33,7 @@
             <input type="radio" class="btn-check" name="gender" id="nonB" value="Non-Binary">
             <label class="btn btn-outline-primary" for="nonB" >Non-Binary</label>
             <div class="form-floating">
-                <textarea class="form-control mb-3" name="otherGenderA1" id="floatingTextArea" placeholder="Other:"></textarea>
+                <textarea class="form-control mb-3" name="name" id="floatingTextArea" placeholder="Other:"></textarea>
                 <label for="floatingTextArea">Other:</label>
             </div>
         </div>
@@ -104,7 +104,7 @@
         </div>
         <div class="container">
             <h4>Therapist/Client Compatibility</h4>
-            <p>What would you like your assigned therapist to be comfortable working with? 
+            <p>From the list below, please indicate any areas you would like your assigned therapist to be comfortable working with. 
                 Please mark any / all that apply</p>
                 <div class="d-grid gap-2">
                     <div class="populations"></div>
@@ -112,9 +112,51 @@
         </div>
         <div class="container">
             <h4>Presenting Issues</h4>
-            <p>What symptoms are you experiencing? Check any / all that apply</p> 
+            <p>Please indicate the level of impact, if any, for each of the following symptoms.</p> 
             <div class="d-grid gap-2">
                 <div class="presentingIssues"></div>
+            </div>
+            </div>
+
+            <div class="container">
+                <h3>Modalities of Treatment</h3>
+                <p>Are you seeking any of the following modalities of treatment?</p>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="checkbox" class="btn-check" name="modal" id="emdr" value="emdr">
+                        <label class="btn btn-outline-primary" for="emdr">EMDR</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="checkbox" class="btn-check" name="modal" id="mind" value="mind">
+                        <label class="btn btn-outline-primary" for="mind">Mindfulness</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="checkbox" class="btn-check" name="modal" id="cbt" value="cbt">
+                        <label class="btn btn-outline-primary" for="cbt">CBT</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="checkbox" class="btn-check" name="modal" id="dbt" value="dbt">
+                        <label class="btn btn-outline-primary" for="dbt">DBT</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="checkbox" class="btn-check" name="modal" id="ift" value="ift">
+                        <label class="btn btn-outline-primary" for="ift">IFT</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="checkbox" class="btn-check" name="modal" id="aft" value="aft">
+                        <label class="btn btn-outline-primary" for="aft">Adult Family Therapy, including couples</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="checkbox" class="btn-check" name="modal" id="motInt" value="motInt">
+                        <label class="btn btn-outline-primary" for="motInt">Motivational Interviewing</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="checkbox" class="btn-check" name="modal" id="cft" value="cft">
+                        <label class="btn btn-outline-primary" for="cft">Contextual Family Therapy</label>
+                    </div>
+                </div>
+                <label for="otherM">Other:</label>
+                <textarea class="form-control" placeholder="Other Modalities" name="modal" id="otherM"></textarea>
             </div>
     <button type="submit">Submit</button>            
         </div>

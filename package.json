@@ -10,9 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cosine-similarity": "^1.0.1",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "mongodb": "^5.7.0",
+    "natural": "^6.5.0",
     "path": "^0.12.7"
   }
 }

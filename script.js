@@ -17,31 +17,50 @@ const createButtons = (data) => {
     const container = document.querySelector('.presentingIssues');
 
     try {
-        for (const issueName in data) {
-            const issue = data[issueName];
-            const presentingIssue = issue.name;
-            issue.symptoms.forEach(symptom => {
-                const symptomCheckbox = document.createElement('input');
-                symptomCheckbox.type = 'checkbox';
-                symptomCheckbox.classList.add('btn-check');
-                symptomCheckbox.name = presentingIssue.toLowerCase();
-                symptomCheckbox.id = symptom.name.toLowerCase();
-                symptomCheckbox.value = symptom.name;
-                symptomCheckbox.autocomplete = 'off';
+        data.forEach(presentingIssue => {
+            const symptom = presentingIssue.name;
+            const presentingIssuesSelect = document.createElement('select');
+            presentingIssuesSelect.type = 'select';
+            presentingIssuesSelect.classList.add('form-select');
+            presentingIssuesSelect.name = 'symptoms';
+            presentingIssuesSelect.id = symptom.toLowerCase();
+            presentingIssuesSelect.value = symptom;
+            presentingIssuesSelect.autocomplete = 'off';
 
-                const symptomLabel = document.createElement('label');
-                symptomLabel.textContent = symptom.name;
-                symptomLabel.classList.add('btn', 'btn-outline-primary', 'mb-2');
-                symptomLabel.setAttribute('for', symptomCheckbox.id);
+            const presentingIssuesLabel = document.createElement('label');
+            presentingIssuesLabel.textContent = symptom;
 
-                container.appendChild(symptomCheckbox);
-                container.appendChild(symptomLabel);
-            });
-        }
+            //const k = 4;
+
+            const option0 = document.createElement('option');
+            option0.textContent = 'Not an impact';
+            option0.value = 0;
+            presentingIssuesSelect.appendChild(option0);
+            const option1 = document.createElement('option');
+            option1.textContent = 'Minor impact on daily life';
+            option1.value = 1;
+            presentingIssuesSelect.appendChild(option1);
+            const option2 = document.createElement('option');
+            option2.textContent = 'Noticable impact on daily life';
+            option2.value = 2;
+            presentingIssuesSelect.appendChild(option2);
+            const option3 = document.createElement('option');
+            option3.textContent = 'Causing major disruptions in daily life';
+            option3.value = 3;
+            presentingIssuesSelect.appendChild(option3);
+            
+
+            container.appendChild(presentingIssuesLabel);
+            container.appendChild(presentingIssuesSelect);
+
+            
+
+        });
     } catch (error) {
         console.error('Error creating buttons:', error);
         console.log('Data:', data);
-    }
+        console.log('createButtons2 called with data:', data);
+    };
         
 }
 
@@ -89,7 +108,7 @@ const createButtons2 = (data) => {
             option2.value = 2;
             populationsSelect.appendChild(option2);
             const option3 = document.createElement('option');
-            option3.textContent = 'Extremely imporant';
+            option3.textContent = 'Extremely important';
             option3.value = 3;
             populationsSelect.appendChild(option3);
             

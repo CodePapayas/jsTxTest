@@ -11,12 +11,13 @@ const client = new MongoClient(uri, {
   }
 });
 
-router.post('/form', async (req, res) => {
+router.post('/provider-submit', async (req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
   const gender = req.body.gender;
-  const sameGenderQ = req.body.sameGenderQ;
-  const otherGenderA = req.body.otherGenderA;
+  const txGender = req.body.txGender;
+  const txAge = req.body.txAge;
+  const otherGendarA1 = req.body.otherGendarA1;
   const age = req.body.age;
   const race = req.body.race;
   const lgbt = req.body.lgbt;
@@ -33,13 +34,25 @@ router.post('/form', async (req, res) => {
     }
   }
 
+  const symptoms = Array.isArray(req.body.symptoms) ? req.body.symptoms : [req.body.symptoms];
+
+  let sympData = [];
+  if (symptoms) {
+    for (let i = 0; i < pop.length; i++) {
+      let x = Number(pop[i]) / 3;
+      let xRounded = x.toFixed(3);
+      sympData.push(Number(xRounded));
+    }
+  }
+
 
   const txAnswers = {
     firstName: firstName,
     lastName: lastName,
     gender: gender,
-    sameGenderQ: sameGenderQ,
-    otherGenderA: otherGenderA,
+    txGender: txGender,
+    txAge: txAge,
+    otherGendarA1: otherGendarA1,
     age: age,
     race: race,
     lgbt: lgbt,
@@ -65,22 +78,17 @@ router.post('/form', async (req, res) => {
   }
 });
 
-router.post('/submit', async (req, res) => {
+router.post('/patient-submit', async (req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
   const gender = req.body.gender;
   const txGender = req.body.txGender;
   const txAge = req.body.txAge;
+  const otherGendarA1 = req.body.otherGendarA1
   const age = req.body.age;
   const race = req.body.race;
   const lgbt = req.body.lgbt;
-  const depression = req.body.depression;
-  const anxiety = req.body.anxiety;
-  const impactoftrauma = req.body.impactoftrauma;
-  const psychosis = req.body.psychosis;
-  const obsessivesymptoms = req.body.obsessivesymptoms;
-  const bipolarsymptoms = req.body.bipolarsymptoms;
-  const disorderedeating = req.body.disorderedeating;
+  const modal = req.body.modal;
 
   const pop = Array.isArray(req.body.pop) ? req.body.pop : [req.body.pop];
 
@@ -93,23 +101,31 @@ router.post('/submit', async (req, res) => {
     }
   }
 
-  const ptAnswers = {
+  const symptoms = Array.isArray(req.body.symptoms) ? req.body.symptoms : [req.body.symptoms];
+
+  let sympData = [];
+  if (symptoms) {
+    for (let i = 0; i < symptoms.length; i++) {
+      let x = Number(symptoms[i]) / 3;
+      let xRounded = x.toFixed(3);
+      sympData.push(Number(xRounded));
+    }
+  }
+
+
+  const txAnswers = {
     firstName: firstName,
     lastName: lastName,
     gender: gender,
     txGender: txGender,
     txAge: txAge,
+    otherGendarA1: otherGendarA1,
     age: age,
     race: race,
     lgbt: lgbt,
+    modal: modal,
     popData: popData,
-    depression: depression,
-    anxiety: anxiety,
-    impactoftrauma: impactoftrauma,
-    psychosis: psychosis,
-    obsessivesymptoms: obsessivesymptoms,
-    bipolarsymptoms: bipolarsymptoms,
-    disorderedeating: disorderedeating
+    sympData: sympData
   };
 
   try {
@@ -118,10 +134,10 @@ router.post('/submit', async (req, res) => {
     const db = client.db('AnswerObjects');
     const collection = db.collection('PatientAnswers');
 
-    await collection.insertOne(ptAnswers);
+    await collection.insertOne(txAnswers);
 
     console.log('Data written successfully');
-    res.sendFile('finish.html', { root: '.' });
+    res.sendFile('finish.html', { root:'.'});
   } catch (error) {
     console.error('Error writing data to MongoDB:', error);
   } finally {
