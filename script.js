@@ -93,7 +93,6 @@ const createButtons2 = (data) => {
             const populationsLabel = document.createElement('label');
             populationsLabel.textContent = pop;
 
-            const k = 4;
 
             const option0 = document.createElement('option');
             option0.textContent = 'N/A';
