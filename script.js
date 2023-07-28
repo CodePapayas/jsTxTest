@@ -125,8 +125,70 @@ const createButtons2 = (data) => {
     };
 };
 
+async function createButtonsPopTx() {
+    try {
+        const response = await fetch('/api/populations');
+        const data = await response.json();
+        
+        const populations = data.populations;
+        createButtons3(populations);
+    } catch (error) {
+        console.error('Error fetching presenting issues:', error);
+    }
+}
+
+const container3 = document.querySelector('.populations2')
+
+const createButtons3 = (data) => {
+    try {
+        data.forEach(population => {
+            const pop = population.name;
+            const populationsSelect = document.createElement('select');
+            populationsSelect.type = 'select';
+            populationsSelect.classList.add('form-select');
+            populationsSelect.name = 'pop';
+            populationsSelect.id = pop.toLowerCase();
+            populationsSelect.value = pop;
+            populationsSelect.autocomplete = 'off';
+
+            const populationsLabel = document.createElement('label');
+            populationsLabel.textContent = pop;
+
+
+            const option0 = document.createElement('option');
+            option0.textContent = '0 - Unwilling to work with';
+            option0.value = 0;
+            populationsSelect.appendChild(option0);
+            const option1 = document.createElement('option');
+            option1.textContent = '1 - Willing to work with, but I prefer not to';
+            option1.value = 1;
+            populationsSelect.appendChild(option1);
+            const option2 = document.createElement('option');
+            option2.textContent = '2 - Open to working with, but have minimal experience';
+            option2.value = 2;
+            populationsSelect.appendChild(option2);
+            const option3 = document.createElement('option');
+            option3.textContent = '3 - Strong preference to work with';
+            option3.value = 3;
+            populationsSelect.appendChild(option3);
+            
+
+            container3.appendChild(populationsLabel);
+            container3.appendChild(populationsSelect);
+
+            
+
+        });
+    } catch (error) {
+        console.error('Error creating buttons:', error);
+        console.log('Data:', data);
+        console.log('createButtons2 called with data:', data);
+    };
+};
+
 window.addEventListener('load', myInit, true); function myInit(){
     createButtonsPop();
     createButtonsPresentingIssues();
+    createButtonsPopTx();
 }
       
