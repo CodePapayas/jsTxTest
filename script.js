@@ -1,5 +1,16 @@
-let presentingIssues;
-
+const app = Vue.createApp({
+    data() {
+      return {
+        femaleChecked: false,  // Initialize with the checkbox not checked
+        maleChecked: false,
+        nonBinaryChecked: false,
+        otherChecked: false
+      };
+    },
+  });
+  
+  app.mount('#vue-app');  // Mounts the app to the '#vue-app' element
+  
 
 async function createButtonsPop() {
     try {
@@ -12,6 +23,7 @@ async function createButtonsPop() {
         console.error('Error fetching presenting issues:', error);
     }
 }
+
 
 const createButtons = (data) => {
     const container = document.querySelector('.presentingIssues');
@@ -191,4 +203,8 @@ window.addEventListener('load', myInit, true); function myInit(){
     createButtonsPresentingIssues();
     createButtonsPopTx();
 }
+
+
+
+    
       

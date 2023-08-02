@@ -13,3 +13,4 @@ function readDataFromFile(filePath) {
 module.exports = {
   readDataFromFile,
 };
+
