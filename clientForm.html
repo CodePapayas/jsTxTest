@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Client Version</title>
 </head>
 <body>
@@ -25,19 +25,7 @@
         </div>
         </div>
 
-        <div class="container">
-            <h4>Gender:</h4>
-            <input type="radio" class="btn-check" name="gender" id="female" value="Female">
-            <label class="btn btn-outline-primary" for="female">Female</label>
-            <input type="radio" class="btn-check" name="gender" id="male" value="Male">
-            <label class="btn btn-outline-primary" for="male">Male</label>
-            <input type="radio" class="btn-check" name="gender" id="nonB" value="Non-Binary">
-            <label class="btn btn-outline-primary" for="nonB" >Non-Binary</label>
-            <div class="form-floating">
-                <textarea class="form-control mb-3" name="name" id="floatingTextArea" placeholder="Other:"></textarea>
-                <label for="floatingTextArea">Other:</label>
-            </div>
-        </div>
+
         <div class="container">
             <h4>Age:</h4>
             <input type="radio" class="btn-check" name="age" id="age1" value="20-34">
@@ -52,89 +40,125 @@
         <div class="container mb-3">
             <h4>Therapist Demographics</h4>
             <p>Often individuals do not have preferences in therapist assignment, while other times demographic factors feel very important. 
-                Please let us know any therapist preferences you have and the level of importance. </p>
+                Please let us know any therapist preferences you have and the level of importance. If you do not have a preference you may choose not to answer a given section.</p>
             <h4>Level of Importance</h4>
             <p>Extremely Important- It is critical to me that this preference be accommodated, 
                 and I am willing to wait as long as needed for it to be accommodated.</p>
             <p>Important- I strongly hope that this preference is accommodated, but I am willing to work 
                 with a therapist who does not meet this preference if the wait will be more than 4 weeks.</p>
-            <p>Not important- While this is my preference, 
-                fast assignment is more important to me than accommodating this preference. </p>
+            <!-- <p>Not important- While this is my preference, 
+                fast assignment is more important to me than accommodating this preference. </p> -->
         </div>
         <div id="vue-app" class="container">
             <h4>Therapist Gender:</h4>
             <div>
               <input type="checkbox" class="btn-check" name="txGender" id="femaleTx" value="Female" v-model="femaleChecked">
               <label class="btn btn-primary" for="femaleTx">Female</label>
-              <select v-if="femaleChecked">
-                <option value="3">Extremely Important</option>
-                <option value="2">Important</option>
-                <option value="1">Not Important</option>
+              <select v-if="femaleChecked" class="form-select" name="genderPref">
+                <option value="1">Extremely Important</option>
+                <option value="0">Important</option>
               </select>
             </div>
           
             <div>
               <input type="checkbox" class="btn-check" name="txGender" id="maleTx" value="Male" v-model="maleChecked">
               <label class="btn btn-primary" for="maleTx">Male</label>
-              <select v-if="maleChecked">
-                <option value="3">Extremely Important</option>
-                <option value="2">Important</option>
-                <option value="1">Not Important</option>
+              <select v-if="maleChecked" class="form-select" name="genderPref">
+                <option value="1">Extremely Important</option>
+                <option value="0">Important</option>
               </select>
             </div>
           
             <div>
               <input type="checkbox" class="btn-check" name="txGender" id="nonBTx" value="Non-Binary" v-model="nonBinaryChecked">
               <label class="btn btn-primary" for="nonBTx">Non-Binary</label>
-              <select v-if="nonBinaryChecked">
-                <option value="3">Extremely Important</option>
-                <option value="2">Important</option>
-                <option value="1">Not Important</option>
+              <select v-if="nonBinaryChecked" class="form-select" name="genderPref">
+                <option value="1">Extremely Important</option>
+                <option value="0">Important</option>
               </select>
             </div>
           
             <div>
               <input type="checkbox" class="btn-check" name="txGender" id="otherGTx" value="Other" v-model="otherChecked">
               <label class="btn btn-primary" for="otherGTx">Other</label>
-              <select v-if="otherChecked">
-                <option value="3">Extremely Important</option>
-                <option value="2">Important</option>
-                <option value="1">Not Important</option>
+              <select v-if="otherChecked" class="form-select" name="genderPref">
+                <option value="1">Extremely Important</option>
+                <option value="0">Important</option>
               </select>
             </div>
-          </div>
+
           
             
         <div class="container">
             <h4>Therapist Age:</h4>
-            <input type="checkbox" class="btn-check" name="txAge" id="age5" value="20-34">
-            <label class="btn btn-outline-primary" for="age5">20-34</label>
-            <input type="checkbox" class="btn-check" name="txAge" id="age6" value="35-44">
-            <label class="btn btn-outline-primary" for="age6">35-44</label>
-            <input type="checkbox" class="btn-check" name="txAge" id="age7" value="45-54">
+            <div>
+                <input type="checkbox" class="btn-check" name="txAge" id="age5" value="20-34" v-model="age5Checked">
+                <label class="btn btn-outline-primary" for="age5">20-34</label>
+                <select v-if="age5Checked" class="form-select" name="genderPref">
+                    <option value="1">Extremely Important</option>
+                    <option value="0">Important</option>
+                  </select>
+            </div>
+            <div>
+                <input type="checkbox" class="btn-check" name="txAge" id="age6" value="35-44" v-model="age6Checked">
+                <label class="btn btn-outline-primary" for="age6">35-44</label>
+                <select v-if="age6Checked" class="form-select" name="genderPref">
+                    <option value="1">Extremely Important</option>
+                    <option value="0">Important</option>
+              </select>
+            </div>
+            <div>
+            <input type="checkbox" class="btn-check" name="txAge" id="age7" value="45-54" v-model="age7Checked">
             <label class="btn btn-outline-primary" for="age7">45-54</label>
-            <input type="checkbox" class="btn-check" name="txAge" id="age8" value="55+">
+            <select v-if="age7Checked" class="form-select" name="genderPref">
+                <option value="1">Extremely Important</option>
+                <option value="0">Important</option>
+              </select>
+            </div>
+            <div>
+            <input type="checkbox" class="btn-check" name="txAge" id="age8" value="55+" v-model="age8Checked">
             <label class="btn btn-outline-primary" for="age8">55+</label>
+            <select v-if="age8Checked" class="form-select" name="genderPref">
+                <option value="1">Extremely Important</option>
+                <option value="0">Important</option>
+              </select>
+            </div>
         </div>
+
         <div class="container">
             <h4>Race/Ethnicity</h4>
             <p>Is it important to you to work with a clinician who is a person of color?</p>
-            <input type="radio" class="btn-check" name="race" id="yesR" value="Important to work with bipoc tx">
-            <label class="btn btn-primary" for="yesR">Yes</label>
-            <input type="radio" class="btn-check" name="race" id="noR" value="Not important to work with bipoc tx">
-            <label class="btn btn-primary" for="noR">No</label>
-            <input type="radio" class="btn-check" name="race" id="n/aR" value="n/a">
-            <label class="btn btn-primary" for="n/aR">N/A</label>
+            <div>
+            <input type="radio" class="btn-check" name="race" id="yesRace" value="Yes" v-model="yesRaceChecked">
+            <label class="btn btn-primary" for="yesRace">Yes</label>
+            <select v-if="yesRaceChecked" class="form-select" name="genderPref">
+                <option value="1">Extremely Important</option>
+                <option value="0">Important</option>
+              </select>
             </div>
+            <div>
+            <input type="radio" class="btn-check" name="race" id="noRace" value="No">
+            <label class="btn btn-primary" for="noRace">No</label>
+            <input type="radio" class="btn-check" name="race" id="naRace" value="na">
+            <label class="btn btn-primary" for="naRace">N/A</label>
+        </div>
+
             <div class="container">
             <h4>LGBTQIA2S+ </h4>
             <p>Is it important to you to work with a clinician who identifies as a member of the LGBTQIA2S+ community? </p>
-            <input type="radio" class="btn-check" name="lgbt" id="yesL" value="Important to work with LGBTQIA2S+ tx">
-            <label class="btn btn-outline-primary" for="yesL">Yes</label>
-            <input type="radio" class="btn-check" name="lgbt" id="noL" value="Not important to work with LGBTQIA2S+ tx">
+            <div>
+                <input type="radio" class="btn-check" name="lgbt" id="yesL" value="Yes" v-model="yesLgbtChecked">
+                <label class="btn btn-outline-primary" for="yesL">Yes</label>
+                <select v-if="yesLgbtChecked" class="form-select" name="lgbtPref">
+                    <option value="1">Extremely Important</option>
+                    <option value="0">Important</option>
+                </select>
+            </div>
+            <input type="radio" class="btn-check" name="lgbt" id="noL" value="No">
             <label class="btn btn-outline-primary" for="noL">No</label>
-            <input type="radio" class="btn-check" name="lgbt" id="n/aL" value="n/a">
-            <label class="btn btn-outline-primary" for="n/aL">N/A</label>
+            <input type="radio" class="btn-check" name="lgbt" id="naL" value="na">
+            <label class="btn btn-outline-primary" for="naL">N/A</label>
+        </div>
         </div>
         <div class="container">
             <h4>Therapist/Client Compatibility</h4>
@@ -200,5 +224,6 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="script.js"></script>
+    <script src="vue.js"></script>
 </body>
 </html>

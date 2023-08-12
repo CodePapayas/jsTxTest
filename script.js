@@ -1,17 +1,24 @@
 const app = Vue.createApp({
     data() {
       return {
-        femaleChecked: false,  // Initialize with the checkbox not checked
+        femaleChecked: false,
         maleChecked: false,
         nonBinaryChecked: false,
-        otherChecked: false
+        otherChecked: false,
+        age5Checked: false,
+        age6Checked: false,
+        age7Checked: false,
+        age8Checked: false,
+        yesRaceChecked: false,
+        yesLgbtChecked: false
       };
     },
   });
   
-  app.mount('#vue-app');  // Mounts the app to the '#vue-app' element
+  app.mount('#vue-app');
   
 
+  
 async function createButtonsPop() {
     try {
         const response = await fetch('/api/presenting-issues');

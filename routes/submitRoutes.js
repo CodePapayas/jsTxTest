@@ -12,11 +12,12 @@ const client = new MongoClient(uri, {
   }
 });
 
+
+
 router.post('/provider-submit', async (req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
-  const gender = req.body.gender;
-  const txGender = req.body.gender;
+  const Gender = req.body.gender;
   const txAge = req.body.age;
   const otherGendarA1 = req.body.otherGendarA1;
   const age = req.body.age;
@@ -53,8 +54,8 @@ router.post('/provider-submit', async (req, res) => {
   const txAnswers = {
     firstName: firstName,
     lastName: lastName,
-    gender: gender,
-    txGender: txGender,
+    Gender: Gender,
+    txGender: Gender,
     txAge: txAge,
     otherGendarA1: otherGendarA1,
     age: age,
@@ -85,10 +86,11 @@ router.post('/provider-submit', async (req, res) => {
 router.post('/patient-submit', async (req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
-  const gender = req.body.gender;
-  const txGender = req.body.txGender;
+  // const gender = req.body.gender;
+  const Gender = req.body.txGender;
+  const genderPref = req.body.genderPref;
   const txAge = req.body.txAge;
-  const otherGenderA2 = req.body.otherGenderA2
+  const otherGenderA2 = req.body.otherGenderA2;
   const age = req.body.age;
   const race = req.body.race;
   const lgbt = req.body.lgbt;
@@ -119,11 +121,11 @@ router.post('/patient-submit', async (req, res) => {
   const popData = divideArrayByFactor(req.body.pop, 3);
   const sympData = divideArrayByFactor(req.body.symptoms, 3);
 
-  const txAnswers = {
+  const ptAnswers = {
     firstName: firstName,
     lastName: lastName,
-    gender: gender,
-    txGender: txGender,
+    // gender: gender,
+    "gender preference": {Gender: Gender, Importance: genderPref},
     txAge: txAge,
     otherGenderA2: otherGenderA2,
     age: age,
@@ -140,14 +142,14 @@ router.post('/patient-submit', async (req, res) => {
     const db = client.db('AnswerObjects');
     const collection = db.collection('PatientAnswers');
 
-    await collection.insertOne(txAnswers);
+    await collection.insertOne(ptAnswers);
 
     console.log('Data written successfully');
     res.sendFile('finish.html', { root:'.'});
   } catch (error) {
     console.error('Error writing data to MongoDB:', error);
   } finally {
-    await client.close(); // Close the MongoDB connection
+    await client.close();
   }
 });
 

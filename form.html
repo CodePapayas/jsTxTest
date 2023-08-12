@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script defer src="script.js"></script>
     <title>Home page</title>
 </head>
@@ -31,23 +32,23 @@
 
         <div class="container">
             <h4>Gender:</h4>
-            <input type="radio" class="btn-check" name="gender" id="female" value="female">
+            <input type="radio" class="btn-check" name="gender" id="female" value="Female">
             <label class="btn btn-primary" for="female">Female</label>
-            <input type="radio" class="btn-check" name="gender" id="male" value="male">
+            <input type="radio" class="btn-check" name="gender" id="male" value="Male">
             <label class="btn btn-primary" for="male">Male</label>
-            <input type="radio" class="btn-check" name="gender" id="nonB" value="nonB">
+            <input type="radio" class="btn-check" name="gender" id="nonB" value="Non-Binary">
             <label class="btn btn-primary" for="nonB" >Non-Binary</label>
-            <input type="radio" class="btn-check" name="gender" id="otherG" value="otherG">
+            <input type="radio" class="btn-check" name="gender" id="otherG" value="Other">
             <label class="btn btn-primary" for="otherG">Other</label>
         </div>
-        <div class="container">
+        <!-- <div class="container" id="same_gender_provider">
             <h4>Are you willing to work with an individual requesting a therapist who identifies as your gender?</h4>
             <input type="radio" class="btn-check" name="sameGenderQ" id="genYes" value="genYes">
             <label class="btn btn-primary" for="genYes">Yes</label>
             <input type="radio" class="btn-check" name="sameGenderQ" id="genNo" value="genNo">
             <label class="btn btn-primary" for="genNo">No</label>
-        </div>
-        <div class="container">
+        </div> -->
+        <div class="container" id="age_provider">
             <h4>Age:</h4>
             <input type="radio" class="btn-check" name="age" id="age1" value="20-34">
             <label class="btn btn-secondary" for="age1">20-34</label>
@@ -58,27 +59,27 @@
             <input type="radio" class="btn-check" name="age" id="age4" value="55+">
             <label class="btn btn-secondary" for="age4">55+</label>
         </div>
-        <div class="container">
+        <div class="container" id="race_lgbt_therapist">
             <h3>Race/Ethnicity</h3>
             <p>If you identify as a person of color, are you willing 
                 to work with an individual requesting a therapist who identifies as a person of color?</p>
-            <input type="radio" class="btn-check" name="race" id="yesR" value="yesR">
+            <input type="radio" class="btn-check" name="race" id="yesR" value="Yes">
             <label class="btn btn-primary" for="yesR">Yes</label>
-            <input type="radio" class="btn-check" name="race" id="noR" value="noR">
+            <input type="radio" class="btn-check" name="race" id="noR" value="No">
             <label class="btn btn-primary" for="noR">No</label>
-            <input type="radio" class="btn-check" name="race" id="n/aR" value="n/aR">
+            <input type="radio" class="btn-check" name="race" id="n/aR" value="n/a">
             <label class="btn btn-primary" for="n/aR">N/A</label>
 
             <p>If you identify as a member of the LGBTQIA2S+ community, are you willing 
                 to work with an individual requesting a therapist who identifies as a member of the LGBTQIA2S+ community?</p>
-            <input type="radio" class="btn-check" name="lgbt" id="yesL" value="yesL">
+            <input type="radio" class="btn-check" name="lgbt" id="yesL" value="Yes">
             <label class="btn btn-primary" for="yesL">Yes</label>
-            <input type="radio" class="btn-check" name="lgbt" id="noL" value="noL">
+            <input type="radio" class="btn-check" name="lgbt" id="noL" value="No">
             <label class="btn btn-primary" for="noL">No</label>
-            <input type="radio" class="btn-check" name="lgbt" id="n/aL" value="n/aL">
+            <input type="radio" class="btn-check" name="lgbt" id="n/aL" value="n/a">
             <label class="btn btn-primary" for="n/aL">N/A</label>
         </div>
-        <div class="container">
+        <div class="container" id="populations_provider">
             <h3>Populations:</h3>
             <p>What populations and ages are you comfortable working with?
                 Please let us know your level of comfort working with the following populations and ages:
@@ -95,7 +96,7 @@
 
             </div>
 
-        <div class="container">
+        <div class="container" id="presenting_issues_provider">
             <h3>Presenting issues:</h3>
             <p>What presenting issues are you comfortable working with?
                 Please let us know your level of comfort working with the following presenting issues:
@@ -118,7 +119,7 @@
             <label for="anxiety">
                 Anxiety
             </label>
-            <select class="form-select" name="symp" id="anxiety">
+            <select class="form-select" name="symptoms" id="anxiety">
                 <option value="0">  0 - Unwilling to work with  </option>
                 <option value="1">  1 - Willing to work with, but I prefer not to  </option>
                 <option value="2">  2 - Open to working with, but have minimal experience and/or some awareness of limitations  </option>
@@ -176,7 +177,7 @@
             </select>
             </div>
 
-        <div class="container">
+        <div class="container" id="modalities">
             <h3>Modalities of Treatment</h3>
             <p>Which of the following modalities do you use in your therapy </p>
             <div class="row">
