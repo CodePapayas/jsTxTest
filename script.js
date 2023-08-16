@@ -5,19 +5,43 @@ const app = Vue.createApp({
         maleChecked: false,
         nonBinaryChecked: false,
         otherChecked: false,
-        age5Checked: false,
-        age6Checked: false,
-        age7Checked: false,
-        age8Checked: false,
-        yesRaceChecked: false,
-        yesLgbtChecked: false
       };
     },
   });
   
-  app.mount('#vue-app');
-  
 
+
+  const app2 = Vue.createApp({
+    data() {
+        return {
+            age5Checked: false,
+            age6Checked: false,
+            age7Checked: false,
+            age8Checked: false,
+        };
+    },
+  });
+
+  const app3 = Vue.createApp({
+    data() {
+        return {
+            racePreference: null
+        };
+    },
+  });
+
+  const app4 = Vue.createApp({
+    data() {
+        return {
+            lgbtPreference: null
+        };
+    },
+  });
+  
+  app.mount('#vue-genderPref');
+  app2.mount('#vue-agePref');
+  app3.mount('#vue-race');
+  app4.mount('#vue-lgbt');
   
 async function createButtonsPop() {
     try {

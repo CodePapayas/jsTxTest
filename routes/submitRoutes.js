@@ -17,9 +17,7 @@ const client = new MongoClient(uri, {
 router.post('/provider-submit', async (req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
-  const Gender = req.body.gender;
-  const txAge = req.body.age;
-  const otherGendarA1 = req.body.otherGendarA1;
+  const gender = req.body.gender;
   const age = req.body.age;
   const race = req.body.race;
   const lgbt = req.body.lgbt;
@@ -28,36 +26,11 @@ router.post('/provider-submit', async (req, res) => {
   const popData = divideArrayByFactor(req.body.pop, 3);
   const sympData = divideArrayByFactor(req.body.symptoms, 3);
 
-  // const pop = Array.isArray(req.body.pop) ? req.body.pop : [req.body.pop];
-
-  // let popData = [];
-  // if (pop) {
-  //   for (let i = 0; i < pop.length; i++) {
-  //     let x = Number(pop[i]) / 3;
-  //     let xRounded = x.toFixed(3);
-  //     popData.push(Number(xRounded));
-  //   }
-  // }
-
-  // const symptoms = Array.isArray(req.body.symptoms) ? req.body.symptoms : [req.body.symptoms];
-
-  // let sympData = [];
-  // if (symptoms) {
-  //   for (let i = 0; i < pop.length; i++) {
-  //     let x = Number(pop[i]) / 3;
-  //     let xRounded = x.toFixed(3);
-  //     sympData.push(Number(xRounded));
-  //   }
-  // }
-
 
   const txAnswers = {
     firstName: firstName,
     lastName: lastName,
-    Gender: Gender,
-    txGender: Gender,
-    txAge: txAge,
-    otherGendarA1: otherGendarA1,
+    gender: gender,
     age: age,
     race: race,
     lgbt: lgbt,
@@ -86,37 +59,12 @@ router.post('/provider-submit', async (req, res) => {
 router.post('/patient-submit', async (req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
-  // const gender = req.body.gender;
-  const Gender = req.body.txGender;
-  const genderPref = req.body.genderPref;
-  const txAge = req.body.txAge;
-  const otherGenderA2 = req.body.otherGenderA2;
-  const age = req.body.age;
+  const gender = req.body.txGender;
+  const age = req.body.txAge;
   const race = req.body.race;
   const lgbt = req.body.lgbt;
   const modal = req.body.modal;
 
-  // const pop = Array.isArray(req.body.pop) ? req.body.pop : [req.body.pop];
-
-  // let popData = [];
-  // if (pop) {
-  //   for (let i = 0; i < pop.length; i++) {
-  //     let x = Number(pop[i]) / 3;
-  //     let xRounded = x.toFixed(3);
-  //     popData.push(Number(xRounded));
-  //   }
-  // }
-
-  // const symptoms = Array.isArray(req.body.symptoms) ? req.body.symptoms : [req.body.symptoms];
-
-  // let sympData = [];
-  // if (symptoms) {
-  //   for (let i = 0; i < symptoms.length; i++) {
-  //     let x = Number(symptoms[i]) / 3;
-  //     let xRounded = x.toFixed(3);
-  //     sympData.push(Number(xRounded));
-  //   }
-  // }
 
   const popData = divideArrayByFactor(req.body.pop, 3);
   const sympData = divideArrayByFactor(req.body.symptoms, 3);
@@ -124,10 +72,7 @@ router.post('/patient-submit', async (req, res) => {
   const ptAnswers = {
     firstName: firstName,
     lastName: lastName,
-    // gender: gender,
-    "gender preference": {Gender: Gender, Importance: genderPref},
-    txAge: txAge,
-    otherGenderA2: otherGenderA2,
+    gender: gender,
     age: age,
     race: race,
     lgbt: lgbt,

@@ -1,0 +1,4 @@
+Patient Name,First Match Provider Name,First Match Cosine Similarity,Second Match Provider Name,Second Match Cosine Similarity,Third Match Provider Name,Third Match Cosine Similarity
+Mary Sue,Female TX,0.7071067811865475,,,,
+Sue Mary,Female TX,1.0000000000000002,,,,
+Dummy Dumbhead,Female TX,0.9128709291752769,,,,
