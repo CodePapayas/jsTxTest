@@ -1,241 +1,177 @@
-const app = Vue.createApp({
-    data() {
-      return {
-        femaleChecked: false,
-        maleChecked: false,
-        nonBinaryChecked: false,
-        otherChecked: false,
-      };
-    },
-  });
-  
-
-
-  const app2 = Vue.createApp({
-    data() {
-        return {
-            age5Checked: false,
-            age6Checked: false,
-            age7Checked: false,
-            age8Checked: false,
-        };
-    },
-  });
-
-  const app3 = Vue.createApp({
-    data() {
-        return {
-            racePreference: null
-        };
-    },
-  });
-
-  const app4 = Vue.createApp({
-    data() {
-        return {
-            lgbtPreference: null
-        };
-    },
-  });
-  
-  app.mount('#vue-genderPref');
-  app2.mount('#vue-agePref');
-  app3.mount('#vue-race');
-  app4.mount('#vue-lgbt');
-  
 async function createButtonsPop() {
-    try {
-        const response = await fetch('/api/presenting-issues');
-        const data = await response.json();
-        
-        const presentingIssues = data.presentingIssues;
-        createButtons(presentingIssues);
-    } catch (error) {
-        console.error('Error fetching presenting issues:', error);
-    }
-}
+	try {
+		const response = await fetch('/api/presenting-issues');
+		const data = await response.json();
 
+		const presentingIssues = data.presentingIssues;
+		createButtons(presentingIssues);
+	} catch (error) {
+		console.error('Error fetching presenting issues:', error);
+	}
+}
 
 const createButtons = (data) => {
-    const container = document.querySelector('.presentingIssues');
+	const container = document.querySelector('.presentingIssues');
 
-    try {
-        data.forEach(presentingIssue => {
-            const symptom = presentingIssue.name;
-            const presentingIssuesSelect = document.createElement('select');
-            presentingIssuesSelect.type = 'select';
-            presentingIssuesSelect.classList.add('form-select');
-            presentingIssuesSelect.name = 'symptoms';
-            presentingIssuesSelect.id = symptom.toLowerCase();
-            presentingIssuesSelect.value = symptom;
-            presentingIssuesSelect.autocomplete = 'off';
+	try {
+		data.forEach((presentingIssue) => {
+			const symptom = presentingIssue.name;
+			const presentingIssuesSelect = document.createElement('select');
+			presentingIssuesSelect.type = 'select';
+			presentingIssuesSelect.classList.add('form-select');
+			presentingIssuesSelect.name = 'symptoms';
+			presentingIssuesSelect.id = symptom.toLowerCase();
+			presentingIssuesSelect.value = symptom;
+			presentingIssuesSelect.autocomplete = 'off';
 
-            const presentingIssuesLabel = document.createElement('label');
-            presentingIssuesLabel.textContent = symptom;
+			const presentingIssuesLabel = document.createElement('label');
+			presentingIssuesLabel.textContent = symptom;
 
-            //const k = 4;
+			//const k = 4;
 
-            const option0 = document.createElement('option');
-            option0.textContent = 'Not an impact';
-            option0.value = 0;
-            presentingIssuesSelect.appendChild(option0);
-            const option1 = document.createElement('option');
-            option1.textContent = 'Minor impact on daily life';
-            option1.value = 1;
-            presentingIssuesSelect.appendChild(option1);
-            const option2 = document.createElement('option');
-            option2.textContent = 'Noticable impact on daily life';
-            option2.value = 2;
-            presentingIssuesSelect.appendChild(option2);
-            const option3 = document.createElement('option');
-            option3.textContent = 'Causing major disruptions in daily life';
-            option3.value = 3;
-            presentingIssuesSelect.appendChild(option3);
-            
+			const option0 = document.createElement('option');
+			option0.textContent = 'Not an impact';
+			option0.value = 0;
+			presentingIssuesSelect.appendChild(option0);
+			const option1 = document.createElement('option');
+			option1.textContent = 'Minor impact on daily life';
+			option1.value = 1;
+			presentingIssuesSelect.appendChild(option1);
+			const option2 = document.createElement('option');
+			option2.textContent = 'Noticable impact on daily life';
+			option2.value = 2;
+			presentingIssuesSelect.appendChild(option2);
+			const option3 = document.createElement('option');
+			option3.textContent = 'Causing major disruptions in daily life';
+			option3.value = 3;
+			presentingIssuesSelect.appendChild(option3);
 
-            container.appendChild(presentingIssuesLabel);
-            container.appendChild(presentingIssuesSelect);
-
-            
-
-        });
-    } catch (error) {
-        console.error('Error creating buttons:', error);
-        console.log('Data:', data);
-        console.log('createButtons2 called with data:', data);
-    };
-        
-}
+			container.appendChild(presentingIssuesLabel);
+			container.appendChild(presentingIssuesSelect);
+		});
+	} catch (error) {
+		console.error('Error creating buttons:', error);
+		console.log('Data:', data);
+		console.log('createButtons2 called with data:', data);
+	}
+};
 
 async function createButtonsPresentingIssues() {
-    try {
-        const response = await fetch('/api/populations');
-        const data = await response.json();
-        
-        const populations = data.populations;
-        createButtons2(populations);
-    } catch (error) {
-        console.error('Error fetching presenting issues:', error);
-    }
+	try {
+		const response = await fetch('/api/populations');
+		const data = await response.json();
+
+		const populations = data.populations;
+		createButtons2(populations);
+	} catch (error) {
+		console.error('Error fetching presenting issues:', error);
+	}
 }
 
 const container2 = document.querySelector('.populations');
 
 const createButtons2 = (data) => {
-    try {
-        data.forEach(population => {
-            const pop = population.name;
-            const populationsSelect = document.createElement('select');
-            populationsSelect.type = 'select';
-            populationsSelect.classList.add('form-select');
-            populationsSelect.name = 'pop';
-            populationsSelect.id = pop.toLowerCase();
-            populationsSelect.value = pop;
-            populationsSelect.autocomplete = 'off';
+	try {
+		data.forEach((population) => {
+			const pop = population.name;
+			const populationsSelect = document.createElement('select');
+			populationsSelect.type = 'select';
+			populationsSelect.classList.add('form-select');
+			populationsSelect.name = 'pop';
+			populationsSelect.id = pop.toLowerCase();
+			populationsSelect.value = pop;
+			populationsSelect.autocomplete = 'off';
 
-            const populationsLabel = document.createElement('label');
-            populationsLabel.textContent = pop;
+			const populationsLabel = document.createElement('label');
+			populationsLabel.textContent = pop;
 
+			const option0 = document.createElement('option');
+			option0.textContent = 'N/A';
+			option0.value = 0;
+			populationsSelect.appendChild(option0);
+			const option1 = document.createElement('option');
+			option1.textContent = 'Not imporant';
+			option1.value = 1;
+			populationsSelect.appendChild(option1);
+			const option2 = document.createElement('option');
+			option2.textContent = 'Important';
+			option2.value = 2;
+			populationsSelect.appendChild(option2);
+			const option3 = document.createElement('option');
+			option3.textContent = 'Extremely important';
+			option3.value = 3;
+			populationsSelect.appendChild(option3);
 
-            const option0 = document.createElement('option');
-            option0.textContent = 'N/A';
-            option0.value = 0;
-            populationsSelect.appendChild(option0);
-            const option1 = document.createElement('option');
-            option1.textContent = 'Not imporant';
-            option1.value = 1;
-            populationsSelect.appendChild(option1);
-            const option2 = document.createElement('option');
-            option2.textContent = 'Important';
-            option2.value = 2;
-            populationsSelect.appendChild(option2);
-            const option3 = document.createElement('option');
-            option3.textContent = 'Extremely important';
-            option3.value = 3;
-            populationsSelect.appendChild(option3);
-            
-
-            container2.appendChild(populationsLabel);
-            container2.appendChild(populationsSelect);
-
-            
-
-        });
-    } catch (error) {
-        console.error('Error creating buttons:', error);
-        console.log('Data:', data);
-        console.log('createButtons2 called with data:', data);
-    };
+			container2.appendChild(populationsLabel);
+			container2.appendChild(populationsSelect);
+		});
+	} catch (error) {
+		console.error('Error creating buttons:', error);
+		console.log('Data:', data);
+		console.log('createButtons2 called with data:', data);
+	}
 };
 
 async function createButtonsPopTx() {
-    try {
-        const response = await fetch('/api/populations');
-        const data = await response.json();
-        
-        const populations = data.populations;
-        createButtons3(populations);
-    } catch (error) {
-        console.error('Error fetching presenting issues:', error);
-    }
+	try {
+		const response = await fetch('/api/populations');
+		const data = await response.json();
+
+		const populations = data.populations;
+		createButtons3(populations);
+	} catch (error) {
+		console.error('Error fetching presenting issues:', error);
+	}
 }
 
-const container3 = document.querySelector('.populations2')
+const container3 = document.querySelector('.populations2');
 
 const createButtons3 = (data) => {
-    try {
-        data.forEach(population => {
-            const pop = population.name;
-            const populationsSelect = document.createElement('select');
-            populationsSelect.type = 'select';
-            populationsSelect.classList.add('form-select');
-            populationsSelect.name = 'pop';
-            populationsSelect.id = pop.toLowerCase();
-            populationsSelect.value = pop;
-            populationsSelect.autocomplete = 'off';
+	try {
+		data.forEach((population) => {
+			const pop = population.name;
+			const populationsSelect = document.createElement('select');
+			populationsSelect.type = 'select';
+			populationsSelect.classList.add('form-select');
+			populationsSelect.name = 'pop';
+			populationsSelect.id = pop.toLowerCase();
+			populationsSelect.value = pop;
+			populationsSelect.autocomplete = 'off';
 
-            const populationsLabel = document.createElement('label');
-            populationsLabel.textContent = pop;
+			const populationsLabel = document.createElement('label');
+			populationsLabel.textContent = pop;
 
+			const option0 = document.createElement('option');
+			option0.textContent = '0 - Unwilling to work with';
+			option0.value = 0;
+			populationsSelect.appendChild(option0);
+			const option1 = document.createElement('option');
+			option1.textContent = '1 - Willing to work with, but I prefer not to';
+			option1.value = 1;
+			populationsSelect.appendChild(option1);
+			const option2 = document.createElement('option');
+			option2.textContent =
+				'2 - Open to working with, but have minimal experience';
+			option2.value = 2;
+			populationsSelect.appendChild(option2);
+			const option3 = document.createElement('option');
+			option3.textContent = '3 - Strong preference to work with';
+			option3.value = 3;
+			populationsSelect.appendChild(option3);
 
-            const option0 = document.createElement('option');
-            option0.textContent = '0 - Unwilling to work with';
-            option0.value = 0;
-            populationsSelect.appendChild(option0);
-            const option1 = document.createElement('option');
-            option1.textContent = '1 - Willing to work with, but I prefer not to';
-            option1.value = 1;
-            populationsSelect.appendChild(option1);
-            const option2 = document.createElement('option');
-            option2.textContent = '2 - Open to working with, but have minimal experience';
-            option2.value = 2;
-            populationsSelect.appendChild(option2);
-            const option3 = document.createElement('option');
-            option3.textContent = '3 - Strong preference to work with';
-            option3.value = 3;
-            populationsSelect.appendChild(option3);
-            
-
-            container3.appendChild(populationsLabel);
-            container3.appendChild(populationsSelect);
-
-            
-
-        });
-    } catch (error) {
-        console.error('Error creating buttons:', error);
-        console.log('Data:', data);
-        console.log('createButtons2 called with data:', data);
-    };
+			container3.appendChild(populationsLabel);
+			container3.appendChild(populationsSelect);
+		});
+	} catch (error) {
+		console.error('Error creating buttons:', error);
+		console.log('Data:', data);
+		console.log('createButtons2 called with data:', data);
+	}
 };
 
-window.addEventListener('load', myInit, true); function myInit(){
-    createButtonsPop();
-    createButtonsPresentingIssues();
-    createButtonsPopTx();
+window.addEventListener('load', myInit, true);
+function myInit() {
+	createButtonsPop();
+	createButtonsPresentingIssues();
+	createButtonsPopTx();
 }
-
-
-
-    
-      

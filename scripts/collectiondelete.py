@@ -7,7 +7,7 @@ client = MongoClient(uri)
 
 # Access the database and collection
 db = client['AnswerObjects']
-collection = db['PatientAnswers']
+collection = db['ProviderAnswers']
 
 # Empty the collection
 collection.delete_many({})
