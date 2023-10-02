@@ -1,10 +1,11 @@
 import pymongo
 import numpy as np
 from pymongo import MongoClient
+import matplotlib.pyplot as plt
 
 uri = "mongodb+srv://CodePapayas:Pistachios2050@cluster0.crlnuvw.mongodb.net/?retryWrites=true&w=majority"
 
-try: 
+try:
     client = MongoClient(uri)
     db = client.AnswerObjects
     providers_collection = db.ProviderAnswers
@@ -17,8 +18,9 @@ except pymongo.errors.ConnectionFailure as e:
 providers_data = list(providers_collection.find())
 all_patients_data = list(patients_collection.find())
 
+
 def strict_filter(patient_criteria, all_providers):
-    strict_criteria = ['gender', 'race', 'age', 'lgbt']
+    strict_criteria = ["gender", "race", "age", "lgbt"]
     remaining_providers = all_providers[:]
 
     for criterion in strict_criteria:
@@ -26,56 +28,135 @@ def strict_filter(patient_criteria, all_providers):
 
         if preference_value is not None:  # Ensure the preference value is not null
             remaining_providers = [
-                provider for provider in remaining_providers
+                provider
+                for provider in remaining_providers
                 if provider.get(criterion) == preference_value
             ]
 
     return remaining_providers
 
-def cosine_similarity(a, b):
-    norm_a = np.linalg.norm(a)
-    norm_b = np.linalg.norm(b)
-
-    if norm_a == 0 or norm_b == 0:
-        return 0.0  # Return 0 if either of the norms is zero to avoid division by zero.
-
-    dot_product = np.dot(a, b)
-    norm_a = np.linalg.norm(a)
-    norm_b = np.linalg.norm(b)
-
-    # Check for zero division or NaN values
-    if norm_a == 0.0 or norm_b == 0.0 or np.isnan(dot_product):
-        return 0.0
-
-    print("this is the dot product", dot_product / (norm_a * norm_b))
-    return dot_product / (norm_a * norm_b)
 
 def generate_vector_for_patient(patient_doc, provider_doc):
-    vector = []
+    symp_patient = np.array(patient_doc["sympData"])
+    symp_provider = np.array(provider_doc["sympData"])
 
-    symp_cosine_sim = cosine_similarity(np.array(patient_doc['sympData']), np.array(provider_doc['sympData']))
-    pop_cosine_sim = cosine_similarity(np.array(patient_doc['popData']), np.array(provider_doc['popData']))
-    
-    vector.extend([symp_cosine_sim, pop_cosine_sim])
- 
-    return vector
+    pop_patient = np.array(patient_doc["popData"])
+    pop_provider = np.array(provider_doc["popData"])
 
+    # Calculating absolute differences for symp and pop
+    abs_diff_symp = [
+        abs(symp_patient[i] - symp_provider[i]) for i in range(len(symp_patient))
+    ]
+    abs_diff_pop = [
+        abs(pop_patient[i] - pop_provider[i]) for i in range(len(pop_patient))
+    ]
+
+    print("symp_differences:", abs_diff_symp, "pop_differences:", abs_diff_pop)
+
+    return abs_diff_symp + abs_diff_pop
+
+# matches = []
+
+# for patient_data in all_patients_data:
+#     matched_providers = strict_filter(patient_data, providers_data)
+#     print(
+#         f"Matched providers for patient {patient_data['firstName']} {patient_data['lastName']}:"
+#     )
+
+#     for provider in matched_providers:
+#         patient_vector = generate_vector_for_patient(patient_data, provider)
+
+#         print(f"Provider: {provider['firstName']} {provider['lastName']}")
+#         print(
+#             "Vector1=Symptom Similarity, Vector2=Population Similarity:", patient_vector
+#         )
+#         similarity_score = sum(patient_vector) / len(patient_vector)
+#         matches.append({similarity_score})
+#     print("------")
+#     print("matches")
 
 for patient_data in all_patients_data:
     matched_providers = strict_filter(patient_data, providers_data)
-    print(f"Matched providers for patient {patient_data['firstName']} {patient_data['lastName']}:")
+    matches = []  # Reset matches for each patient
+
+    print(
+        f"Matched providers for patient {patient_data['firstName']} {patient_data['lastName']}:"
+    )
+
+    # for provider in matched_providers:
+    #     patient_vector = generate_vector_for_patient(patient_data, provider)
+
+    #     # print(f"Provider: {provider['firstName']} {provider['lastName']}")
+    #     # print(
+    #     #     "Vector1=Symptom Similarity, Vector2=Population Similarity:", patient_vector
+    #     # )
+    #     similarity_score = sum(patient_vector) / len(patient_vector)
+    #     matches.append({
+    #         'patient': f"{patient_data['firstName']} {patient_data['lastName']}",
+    #         'provider': f"{provider['firstName']} {provider['lastName']}",
+    #         'similarity_score': similarity_score
+    #     })
+
+    # # Sort the matches by similarity_score in descending order (because you want the top matches)
+    # matches = sorted(matches, key=lambda x: x['similarity_score'], reverse=False)
+
+    # # Print the top 5 matches for this patient
+    # print("Top 5 matches for this patient:")
+    # for match in matches[:5]:
+    #     print(f"Provider: {match['provider']}, Score: {match['similarity_score']:.2f}")
+
+    # print("------")
+
+
+# Create a list to store all patient names and their top matches
+all_patient_matches = []
+
+for patient_data in all_patients_data:
+    matched_providers = strict_filter(patient_data, providers_data)
+    matches = []  # Reset matches for each patient
+
+    # Create a new figure for each patient
+    plt.figure(figsize=(10, 6))
+
+    plt.suptitle(f"Top 5 Matches for Patient: {patient_data['firstName']} {patient_data['lastName']}", fontsize=14)
 
     for provider in matched_providers:
-        patient_vector = generate_vector_for_patient(patient_data, provider) # Use 'provider' here, not 'providers_data'
-        provider_vector = generate_vector_for_patient(provider, patient_data)
-        
-        print("Patient Vector:", patient_vector, "Provider Vector:", provider_vector) # Switch places here too
-        
-        similarity_score = cosine_similarity(patient_vector, provider_vector)
-        print("This is the similarity score:", similarity_score)
-        
-        print(provider)  
+        patient_vector = generate_vector_for_patient(patient_data, provider)
+
+        similarity_score = sum(patient_vector) / len(patient_vector)
+        matches.append({
+            'provider': f"{provider['firstName']} {provider['lastName']}",
+            'similarity_score': similarity_score
+        })
+
+    # Sort the matches by similarity_score in descending order (because you want the top matches)
+    matches = sorted(matches, key=lambda x: x['similarity_score'], reverse=True)
+
+    # Store the top 5 matches for this patient
+    top_matches = matches[:5]
+
+    # Extract provider names and scores for visualization
+    provider_names = [match['provider'] for match in top_matches]
+    scores = [match['similarity_score'] for match in top_matches]
+
+    # Create a bar chart for this patient
+    plt.barh(provider_names, scores, color='skyblue')
+    plt.xlabel('Similarity Score')
+    plt.title('Top 5 Matches')
+
+    # Append patient name and their top matches to the list
+    all_patient_matches.append({
+        'patient_name': f"{patient_data['firstName']} {patient_data['lastName']}",
+        'top_matches': top_matches
+    })
+
+# Display all patient charts
+plt.show()
+
+# If needed, you can access the data for each patient's top matches as follows:
+for patient_info in all_patient_matches:
+    print(f"Patient: {patient_info['patient_name']}")
+    for match in patient_info['top_matches']:
+        print(f"Provider: {match['provider']}, Score: {match['similarity_score']:.2f}")
     print("------")
-
-
 
