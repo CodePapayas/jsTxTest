@@ -6,12 +6,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="/script.js"></script>
     <title>Client Version</title>
 </head>
 <body>
     <a href="/" class="btn-secondary">HOME</a>
-    <form action="/patient-submit" id="clientForm" type="text/css" method="POST"> 
+    <form @submit.prevent="prepareSubmission" action="/provider-submit" id="clientForm" type="text/css" method="POST" ref="clientForm"> 
 
         <div class="container">
             <h3>Basic info:</h3>
@@ -86,20 +87,365 @@
         </div>
         
         <div class="container">
+        
             <h4>Therapist/Client Compatibility</h4>
-            <p>From the list below, please indicate any areas you would like your assigned therapist to be comfortable working with. 
+            <p>From the list below, please indicate any areas you would like your assigned therapist to be comfortable working with.
+                For any fields indicated, please let us know how important this is to you. 
                 Please mark any / all that apply</p>
-                <div class="d-grid gap-2">
-                    <div class="populations"></div>
-                </div>
-        </div>
-        <div class="container">
-            <h4>Presenting Issues</h4>
-            <p>Please indicate the level of impact, if any, for each of the following symptoms.</p> 
-            <div class="d-grid gap-2">
-                <div class="presentingIssues"></div>
-            </div>
-            </div>
+            
+<!-- Individuals who identify as male -->
+<div>
+    <p>Individuals who identify as males</p>
+    <input type="button" class="btn-check" name="popLabel" id="malePreference" value="Yes">
+    <label class="btn btn-outline-primary" for="malePreference">Yes</label><br>
+    <select class="form-select" name="pop" id="malePref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals who identify as female -->
+<div>
+    <p>Individuals who identify as females</p>
+    <input type="button" class="btn-check" name="popLabel" id="femalePreference" value="Yes">
+    <label class="btn btn-outline-primary" for="femalePreference">Yes</label><br>
+    <select class="form-select" name="pop" id="femalePref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals who identify as non-binary -->
+<div>
+    <p>Individuals who identify as non-binary</p>
+    <input type="button" class="btn-check" name="popLabel" id="nonBinaryPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="nonBinaryPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="nonBinaryPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Persons of color -->
+<div>
+    <p>Persons of color</p>
+    <input type="button" class="btn-check" name="popLabel" id="pocPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="pocPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="pocPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Children age 0-4 -->
+<div>
+    <p>Children age 0-4</p>
+    <input type="button" class="btn-check" name="popLabel" id="children0_4Preference" value="Yes">
+    <label class="btn btn-outline-primary" for="children0_4Preference">Yes</label><br>
+    <select class="form-select" name="pop" id="children0_4Pref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Children age 5-12 -->
+<div>
+    <p>Children age 5-12</p>
+    <input type="button" class="btn-check" name="popLabel" id="children5_12Preference" value="Yes">
+    <label class="btn btn-outline-primary" for="children5_12Preference">Yes</label><br>
+    <select class="form-select" name="pop" id="children5_12Pref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Children age 13-17 -->
+<div>
+    <p>Children age 13-17</p>
+    <input type="button" class="btn-check" name="popLabel" id="children13_17Preference" value="Yes">
+    <label class="btn btn-outline-primary" for="children13_17Preference">Yes</label><br>
+    <select class="form-select" name="pop" id="children13_17Pref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals age 18-30 -->
+<div>
+    <p>Individuals age 18-30</p>
+    <input type="button" class="btn-check" name="popLabel" id="age18_30Preference" value="Yes">
+    <label class="btn btn-outline-primary" for="age18_30Preference">Yes</label><br>
+    <select class="form-select" name="pop" id="age18_30Pref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals age 31-55 -->
+<div>
+    <p>Individuals age 31-55</p>
+    <input type="button" class="btn-check" name="popLabel" id="age31_55Preference" value="Yes">
+    <label class="btn btn-outline-primary" for="age31_55Preference">Yes</label><br>
+    <select class="form-select" name="pop" id="age31_55Pref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals age 56+ -->
+<div>
+    <p>Individuals age 56+</p>
+    <input type="button" class="btn-check" name="popLabel" id="age56plusPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="age56plusPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="age56plusPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals who identify as LGBTQIA2S+ -->
+<div>
+    <p>Individuals who identify as LGBTQIA2S+</p>
+    <input type="button" class="btn-check" name="popLabel" id="lgbtqia2sPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="lgbtqia2sPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="lgbtqia2sPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals who request a therapist who is supportive of specific spiritual or religious beliefs -->
+<div>
+    <p>Individuals who request a therapist who is supportive of specific spiritual or religious beliefs</p>
+    <input type="button" class="btn-check" name="popLabel" id="spiritualPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="spiritualPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="spiritualPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Seeking service to support gender affirmation -->
+<div>
+    <p>Seeking service to support gender affirmation</p>
+    <input type="button" class="btn-check" name="popLabel" id="genderAffirmationPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="genderAffirmationPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="genderAffirmationPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals with physical health issues or chronic pain -->
+<div>
+    <p>Individuals with physical health issues or chronic pain</p>
+    <input type="button" class="btn-check" name="popLabel" id="physicalHealthPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="physicalHealthPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="physicalHealthPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals who are pregnant or postpartum -->
+<div>
+    <p>Individuals who are pregnant or postpartum</p>
+    <input type="button" class="btn-check" name="popLabel" id="pregnantPostpartumPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="pregnantPostpartumPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="pregnantPostpartumPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals in or seeking recovery from substance use issues -->
+<div>
+    <p>Individuals in or seeking recovery from substance use issues</p>
+    <input type="button" class="btn-check" name="popLabel" id="substanceUsePreference" value="Yes">
+    <label class="btn btn-outline-primary" for="substanceUsePreference">Yes</label><br>
+    <select class="form-select" name="pop" id="substanceUsePref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Families seeking support with reunification -->
+<div>
+    <p>Families seeking support with reunification</p>
+    <input type="button" class="btn-check" name="popLabel" id="reunificationPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="reunificationPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="reunificationPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals with court or DHS involvement -->
+<div>
+    <p>Individuals with court or DHS involvement</p>
+    <input type="button" class="btn-check" name="popLabel" id="courtDHSPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="courtDHSPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="courtDHSPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals who have a history of experiencing trauma -->
+<div>
+    <p>Individuals who have a history of experiencing trauma</p>
+    <input type="button" class="btn-check" name="popLabel" id="traumaPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="traumaPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="traumaPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals who are survivors of domestic violence or sex trafficking -->
+<div>
+    <p>Individuals who are survivors of domestic violence or sex trafficking</p>
+    <input type="button" class="btn-check" name="popLabel" id="survivorsPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="survivorsPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="survivorsPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+
+<!-- Individuals experiencing acute or chronic grief -->
+<div>
+    <p>Individuals experiencing acute or chronic grief</p>
+    <input type="button" class="btn-check" name="popLabel" id="griefPreference" value="Yes">
+    <label class="btn btn-outline-primary" for="griefPreference">Yes</label><br>
+    <select class="form-select" name="pop" id="griefPref">
+        <option value="0">0 - Unwilling to work with</option>
+        <option value="1">1 - Willing to work with, but I prefer not to</option>
+        <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+        <option value="3">3 - Strong preference to work with</option>
+    </select>
+</div>
+</div>
+<div class="container" id="PresentingIssues">
+    <h3>Presenting issues:</h3>
+    <p>What presenting issues are you comfortable working with?
+        Please let us know your level of comfort working with the following presenting issues:
+        <br><em>0 - Unwilling to work with <br>
+            1 - Willing to work with, but I prefer not to <br>
+            2 - Open to working with, but have minimal experience and/or some awareness of limitations <br>
+            3 - Strong preference to work with <br>
+            </em>
+    </p>
+    <label for="depression">
+        Depression
+    </label>
+    <select class="form-select" name="symptoms" id="depression">
+        <option value="0">  0 - Unwilling to work with  </option>
+        <option value="1">  1 - Willing to work with, but I prefer not to  </option>
+        <option value="2">  2 - Open to working with, but have minimal experience and/or some awareness of limitations  </option>
+        <option value="3">  3 - Strong preference to work with  </option>
+    </select>
+
+    <label for="anxiety">
+        Anxiety
+    </label>
+    <select class="form-select" name="symptoms" id="anxiety">
+        <option value="0">  0 - Unwilling to work with  </option>
+        <option value="1">  1 - Willing to work with, but I prefer not to  </option>
+        <option value="2">  2 - Open to working with, but have minimal experience and/or some awareness of limitations  </option>
+        <option value="3">  3 - Strong preference to work with  </option>
+    </select>
+
+    <label for="trauma">
+        Impact of Trauma
+    </label>
+    <select class="form-select" name="symptoms" id="impact of trauma">
+        <option value="0">  0 - Unwilling to work with  </option>
+        <option value="1">  1 - Willing to work with, but I prefer not to  </option>
+        <option value="2">  2 - Open to working with, but have minimal experience and/or some awareness of limitations  </option>
+        <option value="3">  3 - Strong preference to work with  </option>
+    </select>
+
+    <label for="psychosis">
+        Psychosis
+    </label>
+    <select class="form-select" name="symptoms" id="psychosis">
+        <option value="0">  0 - Unwilling to work with  </option>
+        <option value="1">  1 - Willing to work with, but I prefer not to  </option>
+        <option value="2">  2 - Open to working with, but have minimal experience and/or some awareness of limitations  </option>
+        <option value="3">  3 - Strong preference to work with  </option>
+    </select>
+
+    <label for="obsessv">
+        Obsessive Symptoms
+    </label>
+    <select class="form-select" name="symptoms" id="obsessive symptoms">
+        <option value="0">  0 - Unwilling to work with  </option>
+        <option value="1">  1 - Willing to work with, but I prefer not to  </option>
+        <option value="2">  2 - Open to working with, but have minimal experience and/or some awareness of limitations  </option>
+        <option value="3">  3 - Strong preference to work with  </option>
+    </select>
+
+    <label for="bp">
+        Bipolar Symptoms
+    </label>
+    <select class="form-select" name="symptoms" id="bipolar symptoms">
+        <option value="0">  0 - Unwilling to work with  </option>
+        <option value="1">  1 - Willing to work with, but I prefer not to  </option>
+        <option value="2">  2 - Open to working with, but have minimal experience and/or some awareness of limitations  </option>
+        <option value="3">  3 - Strong preference to work with  </option>
+    </select>
+
+    <label for="eating">
+        Disordered Eating
+    </label>
+    <select class="form-select" name="symptoms" id="disordered eating">
+        <option value="0">  0 - Unwilling to work with  </option>
+        <option value="1">  1 - Willing to work with, but I prefer not to  </option>
+        <option value="2">  2 - Open to working with, but have minimal experience and/or some awareness of limitations  </option>
+        <option value="3">  3 - Strong preference to work with  </option>
+    </select>
+    </div>
 
             <div class="container">
                 <h3>Modalities of Treatment</h3>
@@ -141,14 +487,10 @@
                 <label for="otherM">Other:</label>
                 <textarea class="form-control" placeholder="Other Modalities" name="modal" id="otherM"></textarea>
             </div>
-    <button type="submit">Submit</button>            
+    <button type="submit" id="formSubmitButton">Submit</button>            
         </div>
+        <!-- Hidden inputs for pop and symp arrays-->
+
     </form>
-
-    <div name = "symptomAnswers" id="symptomAnswers" class="hidden"></div>
-
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="script.js"></script>
-    <script src="vue.js"></script>
 </body>
 </html>

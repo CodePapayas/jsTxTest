@@ -12,6 +12,9 @@ router.get('/script.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../script.js'));
 });
 
-
+router.get('/vue.js', (req, res) => {
+  res.set('Content-Type', 'application/javascript');
+  res.sendFile(path.join(__dirname, '../vue.js'));
+});
 
   module.exports = router;

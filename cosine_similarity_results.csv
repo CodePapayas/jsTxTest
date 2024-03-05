@@ -1,3 +1,0 @@
-Patient Name,First Match Provider Name,First Match Cosine Similarity,Second Match Provider Name,Second Match Cosine Similarity,Third Match Provider Name,Third Match Cosine Similarity
-"Client (Female, 20-34, yes, yes) ","Option (female, 20-34, yes, yes) 1",1.0000000000000002,"Option (male, 35-44, no, yes) 1",0.9720951984884066,"Option (Non-Binary, 45-54, yes, no) ",0.9413513276653827
-"Client (Female, 20-34, yes, yes) ","Option (female, 20-34, yes, yes) 1",1.0000000000000002,"Option (male, 35-44, no, yes) 1",0.9720951984884066,"Option (Non-Binary, 45-54, yes, no) ",0.9413513276653827

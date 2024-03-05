@@ -1,98 +1,92 @@
 const express = require('express');
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const sqlite3 = require('sqlite3').verbose();
 const router = express.Router();
-const uri =
-	'mongodb+srv://CodePapayas:Pistachios2050@cluster0.crlnuvw.mongodb.net/?retryWrites=true&w=majority';
-const { divideArrayByFactor } = require('../utils/arrayHelpers.js');
 
-const client = new MongoClient(uri, {
-	serverApi: {
-		version: ServerApiVersion.v1,
-		strict: true,
-		deprecationErrors: true,
-	},
+// Connect to SQLite db
+const db = new sqlite3.Database('./test_db.sqlite3', (err) => {
+	if (err) {
+		return console.log(err.message);
+	}
+	console.log('Connected to the database.');
 });
 
+// Check tables exist
+const initDb = () => {
+	db.run(`
+		CREATE TABLE IF NOT EXISTS ProviderAnswers (
+			id INTEGER PRIMARY KEY AUTOINCREMENT,
+			firstName TEXT,
+			lastName TEXT,
+			txGender TEXT,
+			age INTEGER,
+			race TEXT,
+			lgbt TEXT,
+			modal TEXT,
+			popData TEXT,
+			sympData TEXT
+		)
+	`);
+
+	db.run(`
+		CREATE TABLE IF NOT EXISTS PatientAnswers (
+			id INTEGER PRIMARY KEY AUTOINCREMENT,
+			firstName TEXT,
+			lastName TEXT,
+			txGender TEXT,
+			age INTEGER,
+			race TEXT,
+			lgbt TEXT,
+			modal TEXT,
+			popData TEXT,
+			sympData TEXT
+		)
+	`);
+};
+
+// Initialize db tables
+initDb();
+
 router.post('/provider-submit', async (req, res) => {
-	const firstName = req.body.firstName;
-	const lastName = req.body.lastName;
-	const gender = req.body.gender;
-	const age = req.body.age;
-	const race = req.body.race;
-	const lgbt = req.body.lgbt;
-	const modal = req.body.modal;
+    const { firstName, lastName, txGender, age, race, lgbt, modal, pop, symptoms } = req.body;
+    let popData = pop ? (Array.isArray(pop) ? pop : JSON.parse(pop)) : [];
+    let sympData = symptoms ? (Array.isArray(symptoms) ? symptoms : JSON.parse(symptoms)) : [];
 
-	const popData = divideArrayByFactor(req.body.pop, 3);
-	const sympData = divideArrayByFactor(req.body.symptoms, 3);
+    const sql = `INSERT INTO ProviderAnswers (firstName, lastName, txGender, age, race, lgbt, modal, popData, sympData) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-	const txAnswers = {
-		firstName: firstName,
-		lastName: lastName,
-		gender: gender,
-		age: age,
-		race: race,
-		lgbt: lgbt,
-		modal: modal,
-		popData: popData,
-		sympData: sympData,
-	};
-
-	try {
-		await client.connect();
-
-		const db = client.db('AnswerObjects');
-		const collection = db.collection('ProviderAnswers');
-
-		await collection.insertOne(txAnswers);
-
-		console.log('Data written successfully');
-		res.sendFile('finish.html', { root: '.' });
-	} catch (error) {
-		console.error('Error writing data to MongoDB:', error);
-	} finally {
-		await client.close(); // Close the MongoDB connection
-	}
+    db.run(sql, [firstName, lastName, txGender, age, race, lgbt, modal, JSON.stringify(popData), JSON.stringify(sympData)], (err) => {
+        if (err) {
+            console.error('Error writing data to SQLite:', err);
+            return res.status(500).send('Error writing data to SQLite');
+        }
+        console.log('Provider data written successfully');
+        res.sendFile('finish.html', {root: '.'});
+    });
 });
 
 router.post('/patient-submit', async (req, res) => {
-	const firstName = req.body.firstName;
-	const lastName = req.body.lastName;
-	const gender = req.body.txGender;
-	const age = req.body.txAge;
-	const race = req.body.race;
-	const lgbt = req.body.lgbt;
-	const modal = req.body.modal;
+    // Extract fields from req.body
+    const { firstName, lastName, txGender, age, race, lgbt, modal, pop, symptoms } = req.body;
 
-	const popData = divideArrayByFactor(req.body.pop, 3);
-	const sympData = divideArrayByFactor(req.body.symptoms, 3);
+    // Ensure 'pop' and 'symptoms' are treated as arrays
+    let popData = pop ? JSON.parse(pop) : []
+    let sympData = symptoms ? JSON.parse(symptoms) : []
 
-	const ptAnswers = {
-		firstName: firstName,
-		lastName: lastName,
-		gender: gender,
-		age: age,
-		race: race,
-		lgbt: lgbt,
-		modal: modal,
-		popData: popData,
-		sympData: sympData,
-	};
+    // Use 'popData' and 'sympData' directly for database insertion
+    const sql = `INSERT INTO PatientAnswers (firstName, lastName, txGender, age, race, lgbt, modal, popData, sympData) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-	try {
-		await client.connect();
-
-		const db = client.db('AnswerObjects');
-		const collection = db.collection('PatientAnswers');
-
-		await collection.insertOne(ptAnswers);
-
-		console.log('Data written successfully');
-		res.sendFile('finish.html', { root: '.' });
-	} catch (error) {
-		console.error('Error writing data to MongoDB:', error);
-	} finally {
-		await client.close();
-	}
+    db.run(sql, [firstName, lastName, txGender, age, race, lgbt, modal, JSON.stringify(popData), JSON.stringify(sympData)], (err) => {
+        if (err) {
+            console.error('Error writing data to SQLite:', err);
+            return res.status(500).send('Error writing data to SQLite');
+        }
+		console.log(popData)
+		console.log(sympData)
+		console.log(modal)
+        console.log('Patient data written successfully');
+        res.sendFile('finish.html', {root: '.'});
+    });
 });
 
+
+// Export router
 module.exports = router;

@@ -55,26 +55,6 @@ def generate_vector_for_patient(patient_doc, provider_doc):
 
     return abs_diff_symp + abs_diff_pop
 
-# matches = []
-
-# for patient_data in all_patients_data:
-#     matched_providers = strict_filter(patient_data, providers_data)
-#     print(
-#         f"Matched providers for patient {patient_data['firstName']} {patient_data['lastName']}:"
-#     )
-
-#     for provider in matched_providers:
-#         patient_vector = generate_vector_for_patient(patient_data, provider)
-
-#         print(f"Provider: {provider['firstName']} {provider['lastName']}")
-#         print(
-#             "Vector1=Symptom Similarity, Vector2=Population Similarity:", patient_vector
-#         )
-#         similarity_score = sum(patient_vector) / len(patient_vector)
-#         matches.append({similarity_score})
-#     print("------")
-#     print("matches")
-
 for patient_data in all_patients_data:
     matched_providers = strict_filter(patient_data, providers_data)
     matches = []  # Reset matches for each patient
@@ -82,30 +62,6 @@ for patient_data in all_patients_data:
     print(
         f"Matched providers for patient {patient_data['firstName']} {patient_data['lastName']}:"
     )
-
-    # for provider in matched_providers:
-    #     patient_vector = generate_vector_for_patient(patient_data, provider)
-
-    #     # print(f"Provider: {provider['firstName']} {provider['lastName']}")
-    #     # print(
-    #     #     "Vector1=Symptom Similarity, Vector2=Population Similarity:", patient_vector
-    #     # )
-    #     similarity_score = sum(patient_vector) / len(patient_vector)
-    #     matches.append({
-    #         'patient': f"{patient_data['firstName']} {patient_data['lastName']}",
-    #         'provider': f"{provider['firstName']} {provider['lastName']}",
-    #         'similarity_score': similarity_score
-    #     })
-
-    # # Sort the matches by similarity_score in descending order (because you want the top matches)
-    # matches = sorted(matches, key=lambda x: x['similarity_score'], reverse=False)
-
-    # # Print the top 5 matches for this patient
-    # print("Top 5 matches for this patient:")
-    # for match in matches[:5]:
-    #     print(f"Provider: {match['provider']}, Score: {match['similarity_score']:.2f}")
-
-    # print("------")
 
 
 # Create a list to store all patient names and their top matches

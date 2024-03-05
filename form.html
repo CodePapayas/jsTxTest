@@ -79,10 +79,10 @@
             <input type="radio" class="btn-check" name="lgbt" id="n/aL" value="n/a">
             <label class="btn btn-primary" for="n/aL">N/A</label>
         </div>
-        <div class="container" id="populations_provider">
+        <div class="container" id="pop_provider">
             <h3>Populations:</h3>
-            <p>What populations and ages are you comfortable working with?
-                Please let us know your level of comfort working with the following populations and ages:
+            <p>What pop and ages are you comfortable working with?
+                Please let us know your level of comfort working with the following pop and ages:
                 <br><em>0 - Unwilling to work with <br>
                     1 - Willing to work with, but I prefer not to <br>
                     2 - Open to working with, but have minimal experience and/or some awareness of limitations <br>
@@ -90,13 +90,202 @@
                     </em>
             </p>
 
-            <div class="d-grid gap-2">
-                <div class="populations2"></div>
+            <div class="Populations">
+                <!-- Individuals who identify as male -->
+                <label for="identify-as-male">Individuals who identify as male</label>
+                <select class="form-select" name="pop" id="identify-as-male">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals who identify as female -->
+                <label for="identify-as-female">Individuals who identify as female</label>
+                <select class="form-select" name="pop" id="identify-as-female">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals who identify as non-binary -->
+                <label for="identify-as-non-binary">Individuals who identify as non-binary</label>
+                <select class="form-select" name="pop" id="identify-as-non-binary">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Persons of color -->
+                <label for="persons-of-color">Persons of color</label>
+                <select class="form-select" name="pop" id="persons-of-color">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Children age 0-4 -->
+                <label for="children-0-4">Children age 0-4</label>
+                <select class="form-select" name="pop" id="children-0-4">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Children age 5-12 -->
+                <label for="children-5-12">Children age 5-12</label>
+                <select class="form-select" name="pop" id="children-5-12">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Children age 13-17 -->
+                <label for="children-13-17">Children age 13-17</label>
+                <select class="form-select" name="pop" id="children-13-17">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals age 18-30 -->
+                <label for="individuals-18-30">Individuals age 18-30</label>
+                <select class="form-select" name="pop" id="individuals-18-30">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals age 31-55 -->
+                <label for="individuals-31-55">Individuals age 31-55</label>
+                <select class="form-select" name="pop" id="individuals-31-55">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals age 56+ -->
+                <label for="individuals-56-plus">Individuals age 56+</label>
+                <select class="form-select" name="pop" id="individuals-56-plus">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals who identify as LGBTQIA2S+ -->
+                <label for="lgbtqia2s-plus">Individuals who identify as LGBTQIA2S+</label>
+                <select class="form-select" name="pop" id="lgbtqia2s-plus">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals who request a therapist who is supportive of specific spiritual or religious beliefs -->
+                <label for="spiritual-support">Individuals who request a therapist who is supportive of specific spiritual or religious beliefs</label>
+                <select class="form-select" name="pop" id="spiritual-support">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Seeking service to support gender affirmation -->
+                <label for="gender-affirmation">Seeking service to support gender affirmation</label>
+                <select class="form-select" name="pop" id="gender-affirmation">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals with physical health issues or chronic pain -->
+                <label for="physical-health-issues">Individuals with physical health issues or chronic pain</label>
+                <select class="form-select" name="pop" id="physical-health-issues">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals who are pregnant or postpartum -->
+                <label for="pregnant-or-postpartum">Individuals who are pregnant or postpartum</label>
+                <select class="form-select" name="pop" id="pregnant-or-postpartum">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals in or seeking recovery from substance use issues -->
+                <label for="substance-use-recovery">Individuals in or seeking recovery from substance use issues</label>
+                <select class="form-select" name="pop" id="substance-use-recovery">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Families seeking support with reunification -->
+                <label for="support-reunification">Families seeking support with reunification</label>
+                <select class="form-select" name="pop" id="support-reunification">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals with court or DHS involvement -->
+                <label for="court-dhs-involvement">Individuals with court or DHS involvement</label>
+                <select class="form-select" name="pop" id="court-dhs-involvement">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals who have a history of experiencing trauma -->
+                <label for="history-of-trauma">Individuals who have a history of experiencing trauma</label>
+                <select class="form-select" name="pop" id="history-of-trauma">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals who are survivors of domestic violence or sex trafficking -->
+                <label for="survivors-violence-trafficking">Individuals who are survivors of domestic violence or sex trafficking</label>
+                <select class="form-select" name="pop" id="survivors-violence-trafficking">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            
+                <!-- Individuals experiencing acute or chronic grief -->
+                <label for="acute-chronic-grief">Individuals experiencing acute or chronic grief</label>
+                <select class="form-select" name="pop" id="acute-chronic-grief">
+                    <option value="0">0 - Unwilling to work with</option>
+                    <option value="1">1 - Willing to work with, but I prefer not to</option>
+                    <option value="2">2 - Open to working with, but have minimal experience and/or some awareness of limitations</option>
+                    <option value="3">3 - Strong preference to work with</option>
+                </select>
+            </div>
+            
             </div>
 
             </div>
 
-        <div class="container" id="presenting_issues_provider">
+        <div class="container" id="PresentingIssues">
             <h3>Presenting issues:</h3>
             <p>What presenting issues are you comfortable working with?
                 Please let us know your level of comfort working with the following presenting issues:

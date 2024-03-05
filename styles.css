@@ -24,3 +24,28 @@ p {
     border-radius: 8px;
     padding: 6px;
 }
+
+#malePref,
+#femalePref,
+#nonBinaryPref,
+#pocPref,
+#children0_4Pref,
+#children5_12Pref,
+#children13_17Pref,
+#age18_30Pref,
+#age31_55Pref,
+#age56plusPref,
+#lgbtqia2sPref,
+#spiritualPref,
+#genderAffirmationPref,
+#physicalHealthPref,
+#pregnantPostpartumPref,
+#substanceUsePref,
+#reunificationPref,
+#courtDHSPref,
+#traumaPref,
+#survivorsPref,
+#griefPref {
+    display: none;
+}
+

@@ -1,177 +1,194 @@
-async function createButtonsPop() {
-	try {
-		const response = await fetch('/api/presenting-issues');
-		const data = await response.json();
+document.addEventListener('DOMContentLoaded', function () {
+    const popButtons = document.querySelectorAll('.populations button');
 
-		const presentingIssues = data.presentingIssues;
-		createButtons(presentingIssues);
-	} catch (error) {
-		console.error('Error fetching presenting issues:', error);
-	}
-}
+    // popButtons.forEach(button => {
+    //     button.addEventListener('click', () => {
+    //         let value = button.getAttribute('value');
+    //         value = value === "0" ? "1" : "0"; // Toggle value between 0 and 1
+    //         button.setAttribute('value', value);
+    //         button.classList.toggle('btn-primary');
+    //         button.classList.toggle('btn-outline-primary');
+    //     });
+    // });
 
-const createButtons = (data) => {
-	const container = document.querySelector('.presentingIssues');
+    // const symptomsButtons = document.querySelectorAll('.presenting-issues button');
 
-	try {
-		data.forEach((presentingIssue) => {
-			const symptom = presentingIssue.name;
-			const presentingIssuesSelect = document.createElement('select');
-			presentingIssuesSelect.type = 'select';
-			presentingIssuesSelect.classList.add('form-select');
-			presentingIssuesSelect.name = 'symptoms';
-			presentingIssuesSelect.id = symptom.toLowerCase();
-			presentingIssuesSelect.value = symptom;
-			presentingIssuesSelect.autocomplete = 'off';
+    // symptomsButtons.forEach(button => {
+    //     button.addEventListener('click', () => {
+    //         let value = button.getAttribute('value');
+    //         value = value === "0" ? "1" : "0"; // Toggle value between 0 and 1
+    //         button.setAttribute('value', value);
+    //         button.classList.toggle('btn-primary');
+    //         button.classList.toggle('btn-outline-primary');
+    //     });
+    // });
+    function toggleElement_malePref() {
+        const element = document.getElementById('malePref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_femalePref() {
+        const element = document.getElementById('femalePref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_nonBinaryPref() {
+        const element = document.getElementById('nonBinaryPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_pocPref() {
+        const element = document.getElementById('pocPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_children0_4Pref() {
+        const element = document.getElementById('children0_4Pref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_children5_12Pref() {
+        const element = document.getElementById('children5_12Pref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_children13_17Pref() {
+        const element = document.getElementById('children13_17Pref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_age18_30Pref() {
+        const element = document.getElementById('age18_30Pref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_age31_55Pref() {
+        const element = document.getElementById('age31_55Pref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_age56plusPref() {
+        const element = document.getElementById('age56plusPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_lgbtqia2sPref() {
+        const element = document.getElementById('lgbtqia2sPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_spiritualPref() {
+        const element = document.getElementById('spiritualPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_genderAffirmationPref() {
+        const element = document.getElementById('genderAffirmationPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_physicalHealthPref() {
+        const element = document.getElementById('physicalHealthPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_pregnantPostpartumPref() {
+        const element = document.getElementById('pregnantPostpartumPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_substanceUsePref() {
+        const element = document.getElementById('substanceUsePref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_reunificationPref() {
+        const element = document.getElementById('reunificationPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_courtDHSPref() {
+        const element = document.getElementById('courtDHSPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_traumaPref() {
+        const element = document.getElementById('traumaPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_survivorsPref() {
+        const element = document.getElementById('survivorsPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    function toggleElement_griefPref() {
+        const element = document.getElementById('griefPref');
+        const isDisplayed = window.getComputedStyle(element).display !== "none";
+        element.style.display = isDisplayed ? "none" : "block";
+    }
+    
+    
 
-			const presentingIssuesLabel = document.createElement('label');
-			presentingIssuesLabel.textContent = symptom;
+    document.getElementById('malePreference').addEventListener('click', () => toggleElement_malePref());
+    document.getElementById('femalePreference').addEventListener('click', () => toggleElement_femalePref());
+    document.getElementById('nonBinaryPreference').addEventListener('click', () => toggleElement_nonBinaryPref());
+    document.getElementById('pocPreference').addEventListener('click', () => toggleElement_pocPref());
+    document.getElementById('children0_4Preference').addEventListener('click', () => toggleElement_children0_4Pref());
+    document.getElementById('children5_12Preference').addEventListener('click', () => toggleElement_children5_12Pref());
+    document.getElementById('children13_17Preference').addEventListener('click', () => toggleElement_children13_17Pref());
+    document.getElementById('age18_30Preference').addEventListener('click', () => toggleElement_age18_30Pref());
+    document.getElementById('age31_55Preference').addEventListener('click', () => toggleElement_age31_55Pref());
+    document.getElementById('age56plusPreference').addEventListener('click', () => toggleElement_age56plusPref());
+    document.getElementById('lgbtqia2sPreference').addEventListener('click', () => toggleElement_lgbtqia2sPref());
+    document.getElementById('spiritualPreference').addEventListener('click', () => toggleElement_spiritualPref());
+    document.getElementById('genderAffirmationPreference').addEventListener('click', () => toggleElement_genderAffirmationPref());
+    document.getElementById('physicalHealthPreference').addEventListener('click', () => toggleElement_physicalHealthPref());
+    document.getElementById('pregnantPostpartumPreference').addEventListener('click', () => toggleElement_pregnantPostpartumPref());
+    document.getElementById('substanceUsePreference').addEventListener('click', () => toggleElement_substanceUsePref());
+    document.getElementById('reunificationPreference').addEventListener('click', () => toggleElement_reunificationPref());
+    document.getElementById('courtDHSPreference').addEventListener('click', () => toggleElement_courtDHSPref());
+    document.getElementById('traumaPreference').addEventListener('click', () => toggleElement_traumaPref());
+    document.getElementById('survivorsPreference').addEventListener('click', () => toggleElement_survivorsPref());
+    document.getElementById('griefPreference').addEventListener('click', () => toggleElement_griefPref());
+    
+    document.getElementById('formSubmitButton').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default form submission
 
-			//const k = 4;
+        // Correctly collect 'pop' and 'symptoms' values from buttons
+        const popValues = Array.from(document.querySelectorAll('.populations'))
+            .map(button => button.getAttribute('value'));
+        const symptomsValues = Array.from(document.querySelectorAll('.presenting-issues'))
+            .map(button => button.getAttribute('value'));
 
-			const option0 = document.createElement('option');
-			option0.textContent = 'Not an impact';
-			option0.value = 0;
-			presentingIssuesSelect.appendChild(option0);
-			const option1 = document.createElement('option');
-			option1.textContent = 'Minor impact on daily life';
-			option1.value = 1;
-			presentingIssuesSelect.appendChild(option1);
-			const option2 = document.createElement('option');
-			option2.textContent = 'Noticable impact on daily life';
-			option2.value = 2;
-			presentingIssuesSelect.appendChild(option2);
-			const option3 = document.createElement('option');
-			option3.textContent = 'Causing major disruptions in daily life';
-			option3.value = 3;
-			presentingIssuesSelect.appendChild(option3);
+        // Append these values to your form data
+        const formData = new FormData(document.getElementById('clientForm'));
+        formData.append('pop', JSON.stringify(popValues));
+        formData.append('symptoms', JSON.stringify(symptomsValues));
 
-			container.appendChild(presentingIssuesLabel);
-			container.appendChild(presentingIssuesSelect);
-		});
-	} catch (error) {
-		console.error('Error creating buttons:', error);
-		console.log('Data:', data);
-		console.log('createButtons2 called with data:', data);
-	}
-};
+        // Prepare to submit the form data
 
-async function createButtonsPresentingIssues() {
-	try {
-		const response = await fetch('/api/populations');
-		const data = await response.json();
-
-		const populations = data.populations;
-		createButtons2(populations);
-	} catch (error) {
-		console.error('Error fetching presenting issues:', error);
-	}
-}
-
-const container2 = document.querySelector('.populations');
-
-const createButtons2 = (data) => {
-	try {
-		data.forEach((population) => {
-			const pop = population.name;
-			const populationsSelect = document.createElement('select');
-			populationsSelect.type = 'select';
-			populationsSelect.classList.add('form-select');
-			populationsSelect.name = 'pop';
-			populationsSelect.id = pop.toLowerCase();
-			populationsSelect.value = pop;
-			populationsSelect.autocomplete = 'off';
-
-			const populationsLabel = document.createElement('label');
-			populationsLabel.textContent = pop;
-
-			const option0 = document.createElement('option');
-			option0.textContent = 'N/A';
-			option0.value = 0;
-			populationsSelect.appendChild(option0);
-			const option1 = document.createElement('option');
-			option1.textContent = 'Not imporant';
-			option1.value = 1;
-			populationsSelect.appendChild(option1);
-			const option2 = document.createElement('option');
-			option2.textContent = 'Important';
-			option2.value = 2;
-			populationsSelect.appendChild(option2);
-			const option3 = document.createElement('option');
-			option3.textContent = 'Extremely important';
-			option3.value = 3;
-			populationsSelect.appendChild(option3);
-
-			container2.appendChild(populationsLabel);
-			container2.appendChild(populationsSelect);
-		});
-	} catch (error) {
-		console.error('Error creating buttons:', error);
-		console.log('Data:', data);
-		console.log('createButtons2 called with data:', data);
-	}
-};
-
-async function createButtonsPopTx() {
-	try {
-		const response = await fetch('/api/populations');
-		const data = await response.json();
-
-		const populations = data.populations;
-		createButtons3(populations);
-	} catch (error) {
-		console.error('Error fetching presenting issues:', error);
-	}
-}
-
-const container3 = document.querySelector('.populations2');
-
-const createButtons3 = (data) => {
-	try {
-		data.forEach((population) => {
-			const pop = population.name;
-			const populationsSelect = document.createElement('select');
-			populationsSelect.type = 'select';
-			populationsSelect.classList.add('form-select');
-			populationsSelect.name = 'pop';
-			populationsSelect.id = pop.toLowerCase();
-			populationsSelect.value = pop;
-			populationsSelect.autocomplete = 'off';
-
-			const populationsLabel = document.createElement('label');
-			populationsLabel.textContent = pop;
-
-			const option0 = document.createElement('option');
-			option0.textContent = '0 - Unwilling to work with';
-			option0.value = 0;
-			populationsSelect.appendChild(option0);
-			const option1 = document.createElement('option');
-			option1.textContent = '1 - Willing to work with, but I prefer not to';
-			option1.value = 1;
-			populationsSelect.appendChild(option1);
-			const option2 = document.createElement('option');
-			option2.textContent =
-				'2 - Open to working with, but have minimal experience';
-			option2.value = 2;
-			populationsSelect.appendChild(option2);
-			const option3 = document.createElement('option');
-			option3.textContent = '3 - Strong preference to work with';
-			option3.value = 3;
-			populationsSelect.appendChild(option3);
-
-			container3.appendChild(populationsLabel);
-			container3.appendChild(populationsSelect);
-		});
-	} catch (error) {
-		console.error('Error creating buttons:', error);
-		console.log('Data:', data);
-		console.log('createButtons2 called with data:', data);
-	}
-};
-
-window.addEventListener('load', myInit, true);
-function myInit() {
-	createButtonsPop();
-	createButtonsPresentingIssues();
-	createButtonsPopTx();
-}
+        // Use the original form submission method or adjust as necessary
+        document.getElementById('clientForm').submit(); // Programmatically submit the form
+    });
+});
