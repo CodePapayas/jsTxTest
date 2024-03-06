@@ -461,44 +461,43 @@
                 <p>Are you seeking any of the following modalities of treatment?</p>
                 <div class="row">
                     <div class="col-6">
-                        <input type="checkbox" class="btn-check" name="modal" id="emdr" value="emdr">
+                        <input type="checkbox" class="btn-check" name="modal[]" id="emdr" value="emdr">
                         <label class="btn btn-outline-primary" for="emdr">EMDR</label>
                     </div>
                     <div class="col-6">
-                        <input type="checkbox" class="btn-check" name="modal" id="mind" value="mind">
+                        <input type="checkbox" class="btn-check" name="modal[]" id="mind" value="mind">
                         <label class="btn btn-outline-primary" for="mind">Mindfulness</label>
                     </div>
                     <div class="col-6">
-                        <input type="checkbox" class="btn-check" name="modal" id="cbt" value="cbt">
+                        <input type="checkbox" class="btn-check" name="modal[]" id="cbt" value="cbt">
                         <label class="btn btn-outline-primary" for="cbt">CBT</label>
                     </div>
                     <div class="col-6">
-                        <input type="checkbox" class="btn-check" name="modal" id="dbt" value="dbt">
+                        <input type="checkbox" class="btn-check" name="modal[]" id="dbt" value="dbt">
                         <label class="btn btn-outline-primary" for="dbt">DBT</label>
                     </div>
                     <div class="col-6">
-                        <input type="checkbox" class="btn-check" name="modal" id="ift" value="ift">
+                        <input type="checkbox" class="btn-check" name="modal[]" id="ift" value="ift">
                         <label class="btn btn-outline-primary" for="ift">IFT</label>
                     </div>
                     <div class="col-6">
-                        <input type="checkbox" class="btn-check" name="modal" id="aft" value="aft">
+                        <input type="checkbox" class="btn-check" name="modal[]" id="aft" value="aft">
                         <label class="btn btn-outline-primary" for="aft">Adult Family Therapy, including couples</label>
                     </div>
                     <div class="col-6">
-                        <input type="checkbox" class="btn-check" name="modal" id="motInt" value="motInt">
+                        <input type="checkbox" class="btn-check" name="modal[]" id="motInt" value="motInt">
                         <label class="btn btn-outline-primary" for="motInt">Motivational Interviewing</label>
                     </div>
                     <div class="col-6">
-                        <input type="checkbox" class="btn-check" name="modal" id="cft" value="cft">
+                        <input type="checkbox" class="btn-check" name="modal[]" id="cft" value="cft">
                         <label class="btn btn-outline-primary" for="cft">Contextual Family Therapy</label>
                     </div>
                 </div>
                 <label for="otherM">Other:</label>
-                <textarea class="form-control" placeholder="Other Modalities" name="modal" id="otherM"></textarea>
+                <textarea class="form-control" placeholder="Other Modalities" name="modalOther" id="otherM"></textarea>
             </div>
     <button type="submit" id="formSubmitButton">Submit</button>            
         </div>
-        <!-- Hidden inputs for pop and symp arrays-->
 
     </form>
 </body>

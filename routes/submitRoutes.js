@@ -49,13 +49,16 @@ const initDb = () => {
 initDb();
 
 router.post('/provider-submit', async (req, res) => {
-    const { intern, firstName, lastName, txGender, age, race, lgbt, modal, pop, symptoms } = req.body;
+    const { intern, firstName, lastName, txGender, age, race, lgbt, modal, modalOther, pop, symptoms } = req.body;
     let popData = pop ? (Array.isArray(pop) ? pop : JSON.parse(pop)) : [];
     let sympData = symptoms ? (Array.isArray(symptoms) ? symptoms : JSON.parse(symptoms)) : [];
-
+	let modalData = Array.isArray(modal) ? modal : (modal ? [modal] : []);
+	if (modalOther) {
+		modalData.push(modalOther);
+	}
     const sql = `INSERT INTO ProviderAnswers (intern, firstName, lastName, txGender, age, race, lgbt, modal, popData, sympData) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-    db.run(sql, [intern, firstName, lastName, txGender, age, race, lgbt, modal, JSON.stringify(popData), JSON.stringify(sympData)], (err) => {
+    db.run(sql, [intern, firstName, lastName, txGender, age, race, lgbt, JSON.stringify(popData), JSON.stringify(sympData), JSON.stringify(modalData)], (err) => {
         if (err) {
             console.error('Error writing data to SQLite:', err);
             return res.status(500).send('Error writing data to SQLite');
@@ -66,13 +69,17 @@ router.post('/provider-submit', async (req, res) => {
 });
 
 router.post('/patient-submit', async (req, res) => {
-    const { intern, firstName, lastName, txGender, age, race, lgbt, modal, pop, symptoms } = req.body;
+    const { intern, firstName, lastName, txGender, age, race, lgbt, modal, modalOther, pop, symptoms } = req.body;
     let popData = pop ? (Array.isArray(pop) ? pop : JSON.parse(pop)) : [];
     let sympData = symptoms ? (Array.isArray(symptoms) ? symptoms : JSON.parse(symptoms)) : [];
+	let modalData = Array.isArray(modal) ? modal : (modal ? [modal] : []);
+	if (modalOther) {
+		modalData.push(modalOther);
+	}
 
     const sql = `INSERT INTO PatientAnswers (intern, firstName, lastName, txGender, age, race, lgbt, modal, popData, sympData) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-    db.run(sql, [intern, firstName, lastName, txGender, age, race, lgbt, modal, JSON.stringify(popData), JSON.stringify(sympData)], (err) => {
+    db.run(sql, [intern, firstName, lastName, txGender, age, race, lgbt, JSON.stringify(popData), JSON.stringify(sympData), JSON.stringify(modalData)], (err) => {
         if (err) {
             console.error('Error writing data to SQLite:', err);
             return res.status(500).send('Error writing data to SQLite');
