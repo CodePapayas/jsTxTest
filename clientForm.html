@@ -12,7 +12,16 @@
 </head>
 <body>
     <a href="/" class="btn-secondary">HOME</a>
-    <form @submit.prevent="prepareSubmission" action="/provider-submit" id="clientForm" type="text/css" method="POST" ref="clientForm"> 
+    <form action="/patient-submit" id="clientForm" type="text/css" method="POST" ref="clientForm"> 
+        
+        <div class="container" id="intern_status">
+            <h3>Are you willing to work with an intern therapist?</h3>
+            <p>All CFD interns are in their final year of graduate school and are supervised by licensed therapists. (Agreeing to work with an intern may reduce wait times for assignment.)</p>
+            <input type="radio" class="btn-check" name="intern" id="yesIntern" value="Yes">
+            <label class="btn btn-primary" for="yesIntern">Yes</label>
+            <input type="radio" class="btn-check" name="intern" id="noIntern" value="No">
+            <label class="btn btn-primary" for="noIntern">No</label>
+        </div>
 
         <div class="container">
             <h3>Basic info:</h3>
